@@ -1,0 +1,40 @@
+{
+	"name": "eslint-plugin-mediawiki",
+	"version": "0.1.0",
+	"description": "MediaWiki-specific linting rules, for use in MediaWiki core and extensions.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wikimedia/eslint-plugin-mediawiki.git"
+	},
+	"license": "MIT",
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"eslint-plugin"
+	],
+	"main": "index.js",
+	"scripts": {
+		"pretest": "eslint .",
+		"test": "mocha --reporter dot tests/"
+	},
+	"files": [
+		"index.js",
+		"rules/*"
+	],
+	"peerDependencies": {
+		"eslint": ">=2.3.0"
+	},
+	"devDependencies": {
+		"eslint": "^6.4.0",
+		"eslint-config-wikimedia": "^0.14.3",
+		"mocha": "^6.2.1"
+	},
+	"bugs": {
+		"url": "https://github.com/wikimedia/eslint-plugin-mediawiki/issues"
+	},
+	"homepage": "https://github.com/wikimedia/eslint-plugin-mediawiki#readme",
+	"directories": {
+		"test": "tests"
+	},
+	"dependencies": {}
+}
