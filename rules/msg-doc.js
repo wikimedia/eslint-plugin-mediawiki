@@ -8,9 +8,12 @@ function countMessages( sourceCode, node, countedLines ) {
 		.concat( sourceCode.getCommentsBefore( node ) );
 	return comments.reduce(
 		function ( acc, line ) {
+			if ( line.type === 'Block' ) {
+				return acc;
+			}
 			let matches;
 			if ( !countedLines.has( line ) ) {
-				matches = line.value.match( /msg:./g );
+				matches = line.value.match( /^ *\* ?[a-z]./gi );
 				countedLines.add( line );
 			}
 			return acc + ( matches ? matches.length : 0 );
