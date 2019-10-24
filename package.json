@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-mediawiki",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "MediaWiki-specific linting rules, for use in MediaWiki core and extensions.",
 	"repository": {
 		"type": "git",
