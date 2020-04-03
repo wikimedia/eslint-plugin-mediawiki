@@ -26,8 +26,8 @@
 	},
 	"devDependencies": {
 		"eslint": "^6.4.0",
-		"eslint-config-wikimedia": "^0.14.3",
-		"mocha": "^6.2.1"
+		"eslint-config-wikimedia": "^0.15.1",
+		"mocha": "^7.1.1"
 	},
 	"bugs": {
 		"url": "https://github.com/wikimedia/eslint-plugin-mediawiki/issues"
