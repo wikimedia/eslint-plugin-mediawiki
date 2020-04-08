@@ -2,13 +2,16 @@
 
 const utils = require( './utils.js' );
 
-// TODO: Support `new mw.Message( store, key )` syntax
-const methodNames = [ 'msg', 'message', 'deferMsg' ];
+// TODO: Support native JS methods:
+// * element.classList.add()/remove()
+// * element.className =
+// * jQuery.attr
+const methodNames = [ 'addClass', 'removeClass', 'toggleClass' ];
 
 module.exports = {
 	meta: {
 		docs: {
-			description: 'Ensures message keys are documented when they are constructed.'
+			description: 'Ensures CSS classes are documented when they are constructed.'
 		},
 		schema: []
 	},
@@ -28,7 +31,7 @@ module.exports = {
 				if ( utils.requiresCommentList( context, node ) ) {
 					context.report( {
 						node: node,
-						message: 'All possible message keys should be documented'
+						message: 'All possible CSS classes should be documented'
 						// TODO: Link to documentation page
 					} );
 				}
