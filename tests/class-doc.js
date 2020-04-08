@@ -36,34 +36,54 @@ ruleTester.run( 'class-doc', rule, {
 		// Undocumented feature of jQuery methods:
 		'$el.addClass(["foo", "bar"])',
 
-		'$el.addClass()'
+		'$el.addClass()',
+
+		'new OO.ui.ButtonWidget( { classes: ["foo"] } )',
+
+		'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
+
+		'new OO.ui.ButtonWidget( { framed: false } )'
+
 	],
-	invalid: [
-		'$el.addClass( "foo-" + bar )',
+	invalid: (
+		[
+			'$el.addClass( "foo-" + bar )',
 
-		'$el.addClass( ["foo", bar] )',
+			'$el.addClass( ["foo", bar] )',
 
-		// Not enough classes
-		'// This can produce:\n' +
-		'// * foo-bar-baz\n' +
-		'$el.addClass( "foo-" + bar )',
+			// Not enough classes
+			'// This can produce:\n' +
+			'// * foo-bar-baz\n' +
+			'$el.addClass( "foo-" + bar )',
 
-		// Wrong format
-		'// This constructs foo-baz or foo-quux\n' +
-		'$el.addClass( "foo-" + bar )',
+			// Wrong format
+			'// This constructs foo-baz or foo-quux\n' +
+			'$el.addClass( "foo-" + bar )',
 
-		// Block comments are ignored as the extra `*`'s are confusing
-		'/**\n' +
-		' The following classes are used here:\n' +
-		' * foo-baz\n' +
-		' * foo-quux\n' +
-		' */\n' +
-		'display( $el.addClass("foo-" + bar), baz )'
+			// Block comments are ignored as the extra `*`'s are confusing
+			'/**\n' +
+			' The following classes are used here:\n' +
+			' * foo-baz\n' +
+			' * foo-quux\n' +
+			' */\n' +
+			'display( $el.addClass("foo-" + bar), baz )'
 
-	].map( function ( code ) {
-		return {
-			code: code,
-			errors: [ { message: error, type: 'CallExpression' } ]
-		};
-	} )
+		].map( function ( code ) {
+			return {
+				code: code,
+				errors: [ { message: error, type: 'CallExpression' } ]
+			};
+		} )
+	).concat(
+		[
+			'new OO.ui.ButtonWidget( { classes: ["foo-" + bar] } )',
+
+			'new OO.ui.ButtonWidget( { "classes": ["foo-" + bar] } )'
+		].map( function ( code ) {
+			return {
+				code: code,
+				errors: [ { message: error, type: 'ObjectExpression' } ]
+			};
+		} )
+	)
 } );

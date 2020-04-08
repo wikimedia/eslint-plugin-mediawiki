@@ -17,17 +17,15 @@ function countListItems( sourceCode, node, countedLines ) {
 }
 
 function requiresCommentList( context, node, allowLiteralArray ) {
-	const arg = node.arguments[ 0 ];
-
 	// Allow self-documenting values
 	if (
 		// Literals: 'foo'
-		arg.type === 'Literal' ||
+		node.type === 'Literal' ||
 		// Ternaries: cond ? 'foo' : 'bar'
 		(
-			arg.type === 'ConditionalExpression' &&
-			arg.consequent.type === 'Literal' &&
-			arg.alternate.type === 'Literal'
+			node.type === 'ConditionalExpression' &&
+			node.consequent.type === 'Literal' &&
+			node.alternate.type === 'Literal'
 		)
 		// TODO: Support nested ConditionalExpression's?
 	) {
@@ -36,10 +34,10 @@ function requiresCommentList( context, node, allowLiteralArray ) {
 
 	if (
 		allowLiteralArray &&
-		arg.type === 'ArrayExpression'
+		node.type === 'ArrayExpression'
 	) {
 		// Arrays of literals: [ 'foo', 'bar' ]
-		if ( arg.elements.every( ( node ) => node.type === 'Literal' ) ) {
+		if ( node.elements.every( ( n ) => n.type === 'Literal' ) ) {
 			return false;
 		}
 	}
