@@ -33,10 +33,15 @@ ruleTester.run( 'class-doc', rule, {
 
 		'$el.toggleClass("foo-bar")',
 
+		// Undocumented feature of jQuery methods:
+		'$el.addClass(["foo", "bar"])',
+
 		'$el.addClass()'
 	],
 	invalid: [
 		'$el.addClass( "foo-" + bar )',
+
+		'$el.addClass( ["foo", bar] )',
 
 		// Not enough classes
 		'// This can produce:\n' +
