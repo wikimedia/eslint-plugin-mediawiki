@@ -28,7 +28,7 @@ module.exports = {
 					return;
 				}
 
-				if ( utils.requiresCommentList( context, node ) ) {
+				if ( utils.requiresCommentList( context, node, true ) ) {
 					context.report( {
 						node: node,
 						message: 'All possible CSS classes should be documented'

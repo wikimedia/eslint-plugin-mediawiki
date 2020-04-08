@@ -1,4 +1,4 @@
-function countMessages( sourceCode, node, countedLines ) {
+function countListItems( sourceCode, node, countedLines ) {
 	const comments = sourceCode.getCommentsInside( node )
 		.concat( sourceCode.getCommentsBefore( node ) );
 	return comments.reduce(
@@ -16,14 +16,14 @@ function countMessages( sourceCode, node, countedLines ) {
 	);
 }
 
-function requiresCommentList( context, node ) {
+function requiresCommentList( context, node, allowLiteralArray ) {
 	const arg = node.arguments[ 0 ];
 
-	// Allow self-documenting message key uses
+	// Allow self-documenting values
 	if (
-		// msg( 'foo' )
+		// Literals: 'foo'
 		arg.type === 'Literal' ||
-		// msg( cond ? 'foo' : 'bar' )
+		// Ternaries: cond ? 'foo' : 'bar'
 		(
 			arg.type === 'ConditionalExpression' &&
 			arg.consequent.type === 'Literal' &&
@@ -34,15 +34,25 @@ function requiresCommentList( context, node ) {
 		return false;
 	}
 
+	if (
+		allowLiteralArray &&
+		arg.type === 'ArrayExpression'
+	) {
+		// Arrays of literals: [ 'foo', 'bar' ]
+		if ( arg.elements.every( ( node ) => node.type === 'Literal' ) ) {
+			return false;
+		}
+	}
+
 	const sourceCode = context.getSourceCode();
 	// Don't modify `node` so the correct error source is highlighted
 	let checkNode = node,
-		messages = 0;
+		listItems = 0;
 	const countedLines = new Set();
 	while ( checkNode && checkNode.type !== 'ExpressionStatement' ) {
-		messages += countMessages( sourceCode, checkNode, countedLines );
+		listItems += countListItems( sourceCode, checkNode, countedLines );
 
-		if ( messages > 1 ) {
+		if ( listItems > 1 ) {
 			// Comments found, return
 			return false;
 		}
