@@ -40,6 +40,8 @@ ruleTester.run( 'msg-doc', rule, {
 	invalid: [
 		'message = mw.msg( "foo-" + bar )',
 
+		'message = mw.msg( cond ? "baz" : "foo-" + bar )',
+
 		// Not enough messages
 		'// This can produce:\n' +
 		'// * foo-bar-baz\n' +
