@@ -10,6 +10,7 @@ const ruleTester = new RuleTester( {
 } );
 ruleTester.run( 'class-doc', rule, {
 	valid: [
+		// == jQuery ==
 		'// The following classes are used here:\n' +
 		'// * foo-baz\n' +
 		'// * foo-quux\n' +
@@ -40,6 +41,26 @@ ruleTester.run( 'class-doc', rule, {
 
 		'$el.addClass()',
 
+		// == DOM:className ==
+		'element.className = "foo"',
+
+		'element["className"] = "foo"',
+
+		'element.className = cond ? "foo" : "bar"',
+
+		// == DOM:classList ==
+		'element.classList.add("foo", "bar")',
+
+		'element.classList.remove("foo", "bar")',
+
+		'element.classList.replace("foo", "bar")',
+
+		'element.classList.toggle("foo", "bar")',
+
+		// Non-classList "add"
+		'object.property.add("foo" + bar)',
+
+		// == OOUI ==
 		'new OO.ui.ButtonWidget( { classes: ["foo"] } )',
 
 		'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
@@ -60,6 +81,7 @@ ruleTester.run( 'class-doc', rule, {
 	],
 	invalid: (
 		[
+			// == jQuery ==
 			'$el.addClass( "foo-" + bar )',
 
 			'$el.addClass( ["foo", bar] )',
@@ -79,7 +101,16 @@ ruleTester.run( 'class-doc', rule, {
 			' * foo-baz\n' +
 			' * foo-quux\n' +
 			' */\n' +
-			'display( $el.addClass("foo-" + bar), baz )'
+			'display( $el.addClass("foo-" + bar), baz )',
+
+			// == DOM:classList ==
+			'element.classList.add("foo", "bar" + baz)',
+
+			'element.classList.remove("foo", "bar" + baz)',
+
+			'element.classList.replace("foo", "bar" + baz)',
+
+			'element.classList.toggle("foo", "bar" + baz)'
 
 		].map( function ( code ) {
 			return {
@@ -89,6 +120,19 @@ ruleTester.run( 'class-doc', rule, {
 		} )
 	).concat(
 		[
+			// == DOM:className ==
+			'element.className = "foo" + bar',
+
+			'element.className = cond ? "foo" : "bar" + baz'
+		].map( function ( code ) {
+			return {
+				code: code,
+				errors: [ { message: error, type: 'AssignmentExpression' } ]
+			};
+		} )
+	).concat(
+		[
+			// == OOUI ==
 			'new OO.ui.ButtonWidget( { classes: ["foo-" + bar] } )',
 
 			'new OO.ui.ButtonWidget( { "classes": ["foo-" + bar] } )',
