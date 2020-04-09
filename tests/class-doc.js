@@ -43,7 +43,13 @@ ruleTester.run( 'class-doc', rule, {
 		'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
 
 		// Ternary in array
-		'new OO.ui.ButtonWidget( { "classes": ["foo", enabled ? "enabled" : "disabled"] } )',
+		'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" : "disabled"] } )',
+
+		// Array in ternary
+		'new OO.ui.ButtonWidget( { classes: enabled ? ["foo", "bar"] : ["baz", "quux"] } )',
+
+		// Ternary in ternary
+		'new OO.ui.ButtonWidget( { classes: enabled ? ( framed ? "ef": "eu" ) : ( framed ? "df" : "du" ) } )',
 
 		'new OO.ui.ButtonWidget( { framed: false } )'
 
@@ -83,7 +89,7 @@ ruleTester.run( 'class-doc', rule, {
 
 			'new OO.ui.ButtonWidget( { "classes": ["foo-" + bar] } )',
 
-			'new OO.ui.ButtonWidget( { "classes": ["foo", enabled ? "enabled" + mode : "disabled"] } )'
+			'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" + mode : "disabled"] } )'
 		].map( function ( code ) {
 			return {
 				code: code,

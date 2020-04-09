@@ -27,6 +27,8 @@ ruleTester.run( 'msg-doc', rule, {
 
 		'message = mw.msg(test ? "foo" : "bar")',
 
+		'message = mw.msg(test ? (test2 ? "foo" : "bar") : (test2 ? "baz" : "quux"))',
+
 		'message = mw.msg("foo-bar")',
 
 		'message = mw.message("foo-bar").plain()',

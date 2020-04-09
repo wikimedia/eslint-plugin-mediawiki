@@ -17,29 +17,22 @@ function countListItems( sourceCode, node, countedLines ) {
 }
 
 function isOfLiterals( node ) {
-	// Literals: 'foo'
-	return node.type === 'Literal' ||
-		// Ternaries: cond ? 'foo' : 'bar'
-		(
-			node.type === 'ConditionalExpression' &&
-			node.consequent.type === 'Literal' &&
-			node.alternate.type === 'Literal'
-		);
-	// TODO: Support nested ternaries?
+	switch ( node.type ) {
+		case 'Literal':
+			// Literals: 'foo'
+			return true;
+		case 'ConditionalExpression':
+			// Ternaries: cond ? 'foo' : 'bar'
+			return isOfLiterals( node.consequent ) && isOfLiterals( node.alternate );
+		case 'ArrayExpression':
+			// Arrays of literals
+			return node.elements.every( isOfLiterals );
+	}
+	return false;
 }
 
-function requiresCommentList( context, node, allowLiteralArray ) {
-	// Allow expressions composed of literals as they are self-documenting
+function requiresCommentList( context, node ) {
 	if ( isOfLiterals( node ) ) {
-		return false;
-	}
-
-	// Arrays of literals: [ 'foo', 'bar' ] / [ cond ? 'foo' : 'bar' ]
-	if (
-		allowLiteralArray &&
-		node.type === 'ArrayExpression' &&
-		node.elements.every( isOfLiterals )
-	) {
 		return false;
 	}
 

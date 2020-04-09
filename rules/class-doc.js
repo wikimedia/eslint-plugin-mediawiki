@@ -36,7 +36,7 @@ module.exports = {
 					return;
 				}
 
-				if ( utils.requiresCommentList( context, classesProp.value, true ) ) {
+				if ( utils.requiresCommentList( context, classesProp.value ) ) {
 					context.report( {
 						node: node,
 						message: message
@@ -54,7 +54,7 @@ module.exports = {
 					return;
 				}
 
-				if ( utils.requiresCommentList( context, node.arguments[ 0 ], true ) ) {
+				if ( utils.requiresCommentList( context, node.arguments[ 0 ] ) ) {
 					context.report( {
 						node: node,
 						message: message
