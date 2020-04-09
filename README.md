@@ -3,6 +3,8 @@ MediaWiki-specific linting rules, for use in MediaWiki core and extensions.
 
 ## Usage
 
+__If you are developing in MediaWiki you should be using [eslint-config-wikimedia](https://github.com/wikimedia/eslint-config-wikimedia) which includes this plugin.__
+
 Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, then enable the required rules.
 
 ```json
