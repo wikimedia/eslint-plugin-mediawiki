@@ -72,6 +72,7 @@ module.exports = {
 					) &&
 					!(
 						domMethodNames.includes( node.callee.property.name ) &&
+						node.callee.object.property &&
 						isPropName( node.callee.object.property, 'classList' ) &&
 						node.arguments.some( ( arg ) => utils.requiresCommentList( context, arg ) )
 					)

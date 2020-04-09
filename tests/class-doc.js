@@ -60,6 +60,10 @@ ruleTester.run( 'class-doc', rule, {
 		// Non-classList "add"
 		'object.property.add("foo" + bar)',
 
+		'foo("bar").add("foo" + bar)',
+
+		'add("foo" + bar)',
+
 		// == OOUI ==
 		'new OO.ui.ButtonWidget( { classes: ["foo"] } )',
 
