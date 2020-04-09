@@ -25,7 +25,7 @@ module.exports = {
 					return;
 				}
 
-				if ( utils.requiresCommentList( context, node ) ) {
+				if ( utils.requiresCommentList( context, node.arguments[ 0 ] ) ) {
 					context.report( {
 						node: node,
 						message: 'All possible message keys should be documented'

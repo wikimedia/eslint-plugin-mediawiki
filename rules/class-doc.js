@@ -8,6 +8,8 @@ const utils = require( './utils.js' );
 // * jQuery.attr
 const methodNames = [ 'addClass', 'removeClass', 'toggleClass' ];
 
+const message = 'All possible CSS classes should be documented';
+
 module.exports = {
 	meta: {
 		docs: {
@@ -19,6 +21,32 @@ module.exports = {
 	create: function ( context ) {
 
 		return {
+			ObjectExpression: function ( node ) {
+				const classesProp = node.properties.find(
+					( prop ) => prop.type === 'Property' && (
+						(
+							prop.key.type === 'Identifier' &&
+							prop.key.name === 'classes'
+						) ||
+						(
+							prop.key.type === 'Literal' &&
+							prop.key.value === 'classes'
+						)
+					)
+				);
+				if ( !classesProp ) {
+					return;
+				}
+
+				if ( utils.requiresCommentList( context, classesProp.value ) ) {
+					context.report( {
+						node: node,
+						message: message
+						// TODO: Link to documentation page
+					} );
+				}
+			},
+
 			CallExpression: function ( node ) {
 				if (
 					node.callee.type !== 'MemberExpression' ||
@@ -28,10 +56,10 @@ module.exports = {
 					return;
 				}
 
-				if ( utils.requiresCommentList( context, node, true ) ) {
+				if ( utils.requiresCommentList( context, node.arguments[ 0 ] ) ) {
 					context.report( {
 						node: node,
-						message: 'All possible CSS classes should be documented'
+						message: message
 						// TODO: Link to documentation page
 					} );
 				}

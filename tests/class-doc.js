@@ -5,7 +5,9 @@ const RuleTester = require( 'eslint' ).RuleTester;
 
 const error = 'All possible CSS classes should be documented';
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester( {
+	parserOptions: { ecmaVersion: 2019 }
+} );
 ruleTester.run( 'class-doc', rule, {
 	valid: [
 		'// The following classes are used here:\n' +
@@ -36,34 +38,67 @@ ruleTester.run( 'class-doc', rule, {
 		// Undocumented feature of jQuery methods:
 		'$el.addClass(["foo", "bar"])',
 
-		'$el.addClass()'
+		'$el.addClass()',
+
+		'new OO.ui.ButtonWidget( { classes: ["foo"] } )',
+
+		'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
+
+		// Ternary in array
+		'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" : "disabled"] } )',
+
+		// Array in ternary
+		'new OO.ui.ButtonWidget( { classes: enabled ? ["foo", "bar"] : ["baz", "quux"] } )',
+
+		// Ternary in ternary
+		'new OO.ui.ButtonWidget( { classes: enabled ? ( framed ? "ef": "eu" ) : ( framed ? "df" : "du" ) } )',
+
+		'new OO.ui.ButtonWidget( { framed: false } )',
+
+		// ES2019 object spread
+		'new OO.ui.ButtonWidget( { framed: false, ...config } )'
 	],
-	invalid: [
-		'$el.addClass( "foo-" + bar )',
+	invalid: (
+		[
+			'$el.addClass( "foo-" + bar )',
 
-		'$el.addClass( ["foo", bar] )',
+			'$el.addClass( ["foo", bar] )',
 
-		// Not enough classes
-		'// This can produce:\n' +
-		'// * foo-bar-baz\n' +
-		'$el.addClass( "foo-" + bar )',
+			// Not enough classes
+			'// This can produce:\n' +
+			'// * foo-bar-baz\n' +
+			'$el.addClass( "foo-" + bar )',
 
-		// Wrong format
-		'// This constructs foo-baz or foo-quux\n' +
-		'$el.addClass( "foo-" + bar )',
+			// Wrong format
+			'// This constructs foo-baz or foo-quux\n' +
+			'$el.addClass( "foo-" + bar )',
 
-		// Block comments are ignored as the extra `*`'s are confusing
-		'/**\n' +
-		' The following classes are used here:\n' +
-		' * foo-baz\n' +
-		' * foo-quux\n' +
-		' */\n' +
-		'display( $el.addClass("foo-" + bar), baz )'
+			// Block comments are ignored as the extra `*`'s are confusing
+			'/**\n' +
+			' The following classes are used here:\n' +
+			' * foo-baz\n' +
+			' * foo-quux\n' +
+			' */\n' +
+			'display( $el.addClass("foo-" + bar), baz )'
 
-	].map( function ( code ) {
-		return {
-			code: code,
-			errors: [ { message: error, type: 'CallExpression' } ]
-		};
-	} )
+		].map( function ( code ) {
+			return {
+				code: code,
+				errors: [ { message: error, type: 'CallExpression' } ]
+			};
+		} )
+	).concat(
+		[
+			'new OO.ui.ButtonWidget( { classes: ["foo-" + bar] } )',
+
+			'new OO.ui.ButtonWidget( { "classes": ["foo-" + bar] } )',
+
+			'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" + mode : "disabled"] } )'
+		].map( function ( code ) {
+			return {
+				code: code,
+				errors: [ { message: error, type: 'ObjectExpression' } ]
+			};
+		} )
+	)
 } );
