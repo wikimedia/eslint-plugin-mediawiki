@@ -5,7 +5,9 @@ const RuleTester = require( 'eslint' ).RuleTester;
 
 const error = 'All possible CSS classes should be documented';
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester( {
+	parserOptions: { ecmaVersion: 2019 }
+} );
 ruleTester.run( 'class-doc', rule, {
 	valid: [
 		'// The following classes are used here:\n' +
@@ -51,8 +53,10 @@ ruleTester.run( 'class-doc', rule, {
 		// Ternary in ternary
 		'new OO.ui.ButtonWidget( { classes: enabled ? ( framed ? "ef": "eu" ) : ( framed ? "df" : "du" ) } )',
 
-		'new OO.ui.ButtonWidget( { framed: false } )'
+		'new OO.ui.ButtonWidget( { framed: false } )',
 
+		// ES2019 object spread
+		'new OO.ui.ButtonWidget( { framed: false, ...config } )'
 	],
 	invalid: (
 		[

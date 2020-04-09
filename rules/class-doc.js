@@ -23,14 +23,16 @@ module.exports = {
 		return {
 			ObjectExpression: function ( node ) {
 				const classesProp = node.properties.find(
-					( prop ) =>
+					( prop ) => prop.type === 'Property' && (
 						(
 							prop.key.type === 'Identifier' &&
 							prop.key.name === 'classes'
-						) || (
+						) ||
+						(
 							prop.key.type === 'Literal' &&
 							prop.key.value === 'classes'
 						)
+					)
 				);
 				if ( !classesProp ) {
 					return;
