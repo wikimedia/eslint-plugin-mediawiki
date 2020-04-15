@@ -22,6 +22,7 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 * `mediawiki/class-doc` - Ensures CSS classes are documented when they are constructed.
 * `mediawiki/msg-doc` - Ensures message keys are documented when they are constructed.
 * `mediawiki/valid-package-file-require`- Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules), i.e. contain the file extension and are proper relative paths, e.g. `./foo.js` instead of `./foo` or `foo.js`.
+* `mediawiki/no-vue-dynamic-i18n` - Ensures that `$i18n()` and `v-i18n-html` are not passed dynamic message keys in Vue templates
 
 ## Development
 

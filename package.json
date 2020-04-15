@@ -21,6 +21,9 @@
 		"index.js",
 		"rules/*"
 	],
+	"dependencies": {
+		"eslint-plugin-vue": "^6.2.2"
+	},
 	"peerDependencies": {
 		"eslint": ">=2.3.0"
 	},
@@ -35,6 +38,5 @@
 	"homepage": "https://github.com/wikimedia/eslint-plugin-mediawiki#readme",
 	"directories": {
 		"test": "tests"
-	},
-	"dependencies": {}
+	}
 }
