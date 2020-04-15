@@ -1,5 +1,8 @@
 # eslint-plugin-mediawiki release history
 
+## v0.2.3
+* New rule: `no-vue-dynamic-i18n` (Roan Kattouw)
+
 ## v0.2.2
 * New rule: `class-doc` (Ed Sanders)
 * Rule fix: Support passing arrays of literals to addClass (Ed Sanders)
