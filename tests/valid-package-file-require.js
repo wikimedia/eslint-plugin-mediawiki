@@ -12,6 +12,18 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			filename: testFileName
 		},
 		{
+			code: 'var foo = require( \'./quux.json\' );',
+			filename: testFileName
+		},
+		{
+			code: 'var bar = require( \'../valid-package-file-require.js\' );',
+			filename: testFileName
+		},
+		{
+			code: 'var foo = require( \'foo\' );',
+			filename: testFileName
+		},
+		{
 			code: 'var bar = require( \'bar\' );',
 			filename: testFileName
 		}
@@ -27,6 +39,20 @@ ruleTester.run( 'valid-package-file-require', rule, {
 		},
 		{
 			code: 'var foo = require( \'foo.js\' );',
+			filename: testFileName,
+			errors: [
+				{ message: 'bad resource loader package file path' }
+			]
+		},
+		{
+			code: 'var foo = require( \'./quux\' );',
+			filename: testFileName,
+			errors: [
+				{ message: 'bad resource loader package file path' }
+			]
+		},
+		{
+			code: 'var foo = require( \'quux.json\' );',
 			filename: testFileName,
 			errors: [
 				{ message: 'bad resource loader package file path' }
