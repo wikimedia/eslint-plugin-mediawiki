@@ -18,6 +18,11 @@ function getFullRelativeFilePath( name, context ) {
 	return dotSlashPrefixIfMissing( relativePath );
 }
 
+function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) {
+	return requiredFile === fullRelativeFilePath ||
+		requiredFile.startsWith( './../' ) && requiredFile.substr( 2 ) === fullRelativeFilePath;
+}
+
 module.exports = {
 	meta: {
 		messages: {
@@ -47,7 +52,9 @@ module.exports = {
 					return;
 				}
 
-				if ( requiredFileOrModule !== fullRelativeFilePath ) {
+				if (
+					!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
+				) {
 					context.report( { node, messageId: 'badFilePath' } );
 				}
 			}
