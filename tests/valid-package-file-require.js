@@ -14,6 +14,14 @@ ruleTester.run( 'valid-package-file-require', rule, {
 		{
 			code: 'var bar = require( \'bar\' );',
 			filename: testFileName
+		},
+		{
+			code: 'var foo = require( \'../foo.js\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
+		},
+		{
+			code: 'var foo = require( \'./../foo.js\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
 		}
 	],
 
@@ -28,6 +36,13 @@ ruleTester.run( 'valid-package-file-require', rule, {
 		{
 			code: 'var foo = require( \'foo.js\' );',
 			filename: testFileName,
+			errors: [
+				{ message: 'bad resource loader package file path' }
+			]
+		},
+		{
+			code: 'var foo = require( \'../foo\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' ),
 			errors: [
 				{ message: 'bad resource loader package file path' }
 			]
