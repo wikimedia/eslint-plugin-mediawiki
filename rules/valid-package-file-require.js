@@ -22,13 +22,19 @@ module.exports = {
 	meta: {
 		messages: {
 			badFilePath: 'bad resource loader package file path'
-		}
+		},
+		fixable: 'code'
 	},
 
 	create: function ( context ) {
 		return {
 			CallExpression: ( node ) => {
-				if ( node.callee.name !== 'require' || !node.arguments.length ) {
+				if (
+					node.callee.type !== 'Identifier' ||
+					node.callee.name !== 'require' ||
+					!node.arguments.length ||
+					node.arguments[ 0 ].type !== 'Literal'
+				) {
 					return;
 				}
 
@@ -41,7 +47,14 @@ module.exports = {
 				}
 
 				if ( requiredFileOrModule !== fullRelativeFilePath ) {
-					context.report( { node, messageId: 'badFilePath' } );
+					context.report( {
+						node,
+						messageId: 'badFilePath',
+						fix( fixer ) {
+							const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
+							return fixer.replaceText( node.arguments[ 0 ], `'${escapedNewPath}'` );
+						}
+					} );
 				}
 			}
 		};

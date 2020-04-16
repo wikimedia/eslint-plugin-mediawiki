@@ -20,6 +20,7 @@ ruleTester.run( 'valid-package-file-require', rule, {
 	invalid: [
 		{
 			code: 'var foo = require( \'./foo\' );',
+			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
 			errors: [
 				{ message: 'bad resource loader package file path' }
@@ -27,6 +28,7 @@ ruleTester.run( 'valid-package-file-require', rule, {
 		},
 		{
 			code: 'var foo = require( \'foo.js\' );',
+			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
 			errors: [
 				{ message: 'bad resource loader package file path' }
