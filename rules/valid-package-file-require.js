@@ -26,7 +26,7 @@ function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) 
 module.exports = {
 	meta: {
 		messages: {
-			badFilePath: 'bad resource loader package file path'
+			badFilePath: 'Incorrect file path in require(): use {{ fullRelativeFilePath }} instead'
 		}
 	},
 
@@ -55,7 +55,7 @@ module.exports = {
 				if (
 					!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
 				) {
-					context.report( { node, messageId: 'badFilePath' } );
+					context.report( { node, messageId: 'badFilePath', data: { fullRelativeFilePath } } );
 				}
 			}
 		};
