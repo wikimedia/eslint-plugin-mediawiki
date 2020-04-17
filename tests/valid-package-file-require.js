@@ -12,8 +12,28 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			filename: testFileName
 		},
 		{
+			code: 'var foo = require( \'./quux.json\' );',
+			filename: testFileName
+		},
+		{
+			code: 'var bar = require( \'../valid-package-file-require.js\' );',
+			filename: testFileName
+		},
+		{
+			code: 'var foo = require( \'foo\' );',
+			filename: testFileName
+		},
+		{
 			code: 'var bar = require( \'bar\' );',
 			filename: testFileName
+		},
+		{
+			code: 'var foo = require( \'../foo.js\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
+		},
+		{
+			code: 'var foo = require( \'./../foo.js\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
 		}
 	],
 
@@ -23,7 +43,14 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
 			errors: [
-				{ message: 'bad resource loader package file path' }
+				{ message: 'Incorrect file path in require(): use ./foo.js instead' }
+			]
+		},
+		{
+			code: 'var foo = require( \'../foo\' );',
+			filename: path.resolve( __dirname + '/sandbox/nested/test.js' ),
+			errors: [
+				{ message: 'Incorrect file path in require(): use ../foo.js instead' }
 			]
 		},
 		{
@@ -31,7 +58,21 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
 			errors: [
-				{ message: 'bad resource loader package file path' }
+				{ message: 'Incorrect file path in require(): use ./foo.js instead' }
+			]
+		},
+		{
+			code: 'var foo = require( \'./quux\' );',
+			filename: testFileName,
+			errors: [
+				{ message: 'Incorrect file path in require(): use ./quux.json instead' }
+			]
+		},
+		{
+			code: 'var foo = require( \'quux.json\' );',
+			filename: testFileName,
+			errors: [
+				{ message: 'Incorrect file path in require(): use ./quux.json instead' }
 			]
 		}
 	]
