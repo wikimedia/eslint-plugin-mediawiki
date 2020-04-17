@@ -64,6 +64,7 @@ module.exports = {
 					context.report( {
 						node,
 						messageId: 'badFilePath',
+						data: { fullRelativeFilePath },
 						fix( fixer ) {
 							const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
 							return fixer.replaceText( node.arguments[ 0 ], `'${escapedNewPath}'` );
