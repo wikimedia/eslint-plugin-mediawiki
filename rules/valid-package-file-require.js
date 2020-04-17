@@ -18,6 +18,11 @@ function getFullRelativeFilePath( name, context ) {
 	return dotSlashPrefixIfMissing( relativePath );
 }
 
+function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) {
+	return requiredFile === fullRelativeFilePath ||
+		requiredFile.startsWith( './../' ) && requiredFile.substr( 2 ) === fullRelativeFilePath;
+}
+
 module.exports = {
 	meta: {
 		messages: {
@@ -33,14 +38,23 @@ module.exports = {
 				}
 
 				const requiredFileOrModule = node.arguments[ 0 ].value;
+				// Check if the argument starts with ./ or ../, or ends with .js or .json
+				if ( !requiredFileOrModule.match( /(^\.\.?\/)|(\.(js|json)$)/ ) ) {
+					// If not, it's probably a ResourceLoader module; ignore
+					return;
+				}
+
 				let fullRelativeFilePath;
 				try {
 					fullRelativeFilePath = getFullRelativeFilePath( requiredFileOrModule, context );
 				} catch ( e ) {
-					return; // not a file path, probably a RL module. All good!
+					// File doesn't exist, probably a virtual file in a packageFiles module; ignore
+					return;
 				}
 
-				if ( requiredFileOrModule !== fullRelativeFilePath ) {
+				if (
+					!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
+				) {
 					context.report( { node, messageId: 'badFilePath', data: { fullRelativeFilePath } } );
 				}
 			}
