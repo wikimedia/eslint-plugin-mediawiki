@@ -27,13 +27,19 @@ module.exports = {
 	meta: {
 		messages: {
 			badFilePath: 'Incorrect file path in require(): use {{ fullRelativeFilePath }} instead'
-		}
+		},
+		fixable: 'code'
 	},
 
 	create: function ( context ) {
 		return {
 			CallExpression: ( node ) => {
-				if ( node.callee.name !== 'require' || !node.arguments.length ) {
+				if (
+					node.callee.type !== 'Identifier' ||
+					node.callee.name !== 'require' ||
+					!node.arguments.length ||
+					node.arguments[ 0 ].type !== 'Literal'
+				) {
 					return;
 				}
 
@@ -55,7 +61,15 @@ module.exports = {
 				if (
 					!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
 				) {
-					context.report( { node, messageId: 'badFilePath', data: { fullRelativeFilePath } } );
+					context.report( {
+						node,
+						messageId: 'badFilePath',
+						data: { fullRelativeFilePath },
+						fix( fixer ) {
+							const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
+							return fixer.replaceText( node.arguments[ 0 ], `'${escapedNewPath}'` );
+						}
+					} );
 				}
 			}
 		};
