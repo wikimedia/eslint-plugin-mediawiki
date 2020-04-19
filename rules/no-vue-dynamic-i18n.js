@@ -4,11 +4,12 @@ const vueUtils = require( 'eslint-plugin-vue/lib/utils' );
 
 module.exports = {
 	meta: {
+		type: 'suggestion',
 		docs: {
 			description: 'Prohibits dynamic i18n message keys in Vue templates'
 		},
 		messages: {
-			'dynamic-i18n': 'Dynamic message keys should not be used in templates. Use a computed property instead'
+			'dynamic-i18n': 'Dynamic message keys should not be used in templates. Use a computed property instead.'
 		},
 		schema: []
 	},

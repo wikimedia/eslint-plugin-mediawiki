@@ -19,6 +19,7 @@ function isPropName( node, prop ) {
 
 module.exports = {
 	meta: {
+		type: 'suggestion',
 		docs: {
 			description: 'Ensures CSS classes are documented when they are constructed.'
 		},

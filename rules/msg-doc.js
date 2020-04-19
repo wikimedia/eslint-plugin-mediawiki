@@ -7,6 +7,7 @@ const methodNames = [ 'msg', 'message', 'deferMsg' ];
 
 module.exports = {
 	meta: {
+		type: 'suggestion',
 		docs: {
 			description: 'Ensures message keys are documented when they are constructed.'
 		},

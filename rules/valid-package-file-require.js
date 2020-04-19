@@ -25,6 +25,7 @@ function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) 
 
 module.exports = {
 	meta: {
+		type: 'problem',
 		messages: {
 			badFilePath: 'Incorrect file path in require(): use {{ fullRelativeFilePath }} instead'
 		},
