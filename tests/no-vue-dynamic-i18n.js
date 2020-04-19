@@ -2,7 +2,7 @@ const rule = require( '../rules/no-vue-dynamic-i18n' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint' ).RuleTester;
 
-const errorMessage = 'Dynamic message keys should not be used in templates. Use a computed property instead';
+const errorMessage = 'Dynamic message keys should not be used in templates. Use a computed property instead.';
 
 const ruleTester = new RuleTester( {
 	parser: require.resolve( 'vue-eslint-parser' )
