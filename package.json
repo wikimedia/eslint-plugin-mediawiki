@@ -15,7 +15,7 @@
 	"main": "index.js",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "mocha --reporter dot tests/"
+		"test": "nyc mocha --reporter dot tests/"
 	},
 	"files": [
 		"index.js",
@@ -30,7 +30,8 @@
 	"devDependencies": {
 		"eslint": "^6.4.0",
 		"eslint-config-wikimedia": "^0.15.1",
-		"mocha": "^7.1.1"
+		"mocha": "^7.1.1",
+		"nyc": "^15.0.1"
 	},
 	"bugs": {
 		"url": "https://github.com/wikimedia/eslint-plugin-mediawiki/issues"

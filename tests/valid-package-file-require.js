@@ -8,11 +8,20 @@ const testFileName = path.resolve( __dirname + '/sandbox/test.js' );
 ruleTester.run( 'valid-package-file-require', rule, {
 	valid: [
 		{
+			// Not valid code, but out of scope for this rule
+			code: 'var foo = require();',
+			filename: testFileName
+		},
+		{
 			code: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName
 		},
 		{
 			code: 'var foo = require( \'./quux.json\' );',
+			filename: testFileName
+		},
+		{
+			code: 'var foo = require( \'./virtual.json\' );',
 			filename: testFileName
 		},
 		{

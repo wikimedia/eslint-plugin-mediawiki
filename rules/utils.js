@@ -7,9 +7,9 @@ function countListItems( sourceCode, node, countedLines ) {
 				return acc;
 			}
 			let matches;
-			if ( !countedLines.has( line ) ) {
+			if ( !countedLines.has( line.value ) ) {
 				matches = line.value.match( /^ *\* ?[a-z]./gi );
-				countedLines.add( line );
+				countedLines.add( line.value );
 			}
 			return acc + ( matches ? matches.length : 0 );
 		}, 0
