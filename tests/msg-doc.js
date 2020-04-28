@@ -49,6 +49,12 @@ ruleTester.run( 'msg-doc', rule, {
 		'// * foo-bar-baz\n' +
 		'message = mw.msg( "foo-" + bar )',
 
+		// Not enough messages (duplicate)
+		'// This can produce:\n' +
+		'// * foo-bar-baz\n' +
+		'// * foo-bar-baz\n' +
+		'message = mw.msg( "foo-" + bar )',
+
 		// Wrong format
 		'// This constructs foo-baz or foo-quux\n' +
 		'message = mw.msg( "foo-" + bar )',
