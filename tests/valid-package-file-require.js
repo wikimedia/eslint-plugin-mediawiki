@@ -1,4 +1,4 @@
-const rule = require( '../rules/valid-package-file-require' );
+const rule = require( '../src/rules/valid-package-file-require' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint' ).RuleTester;
 

@@ -12,14 +12,13 @@
 		"eslintplugin",
 		"eslint-plugin"
 	],
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc mocha --reporter dot tests/"
 	},
 	"files": [
-		"index.js",
-		"rules/*"
+		"src"
 	],
 	"dependencies": {
 		"eslint-plugin-vue": "^6.2.2"

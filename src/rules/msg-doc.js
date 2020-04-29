@@ -1,6 +1,6 @@
 'use strict';
 
-const utils = require( './utils.js' );
+const utils = require( '../utils.js' );
 
 // TODO: Support `new mw.Message( store, key )` syntax
 const methodNames = [ 'msg', 'message', 'deferMsg' ];

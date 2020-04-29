@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require( '../rules/class-doc' );
+const rule = require( '../src/rules/class-doc' );
 const RuleTester = require( 'eslint' ).RuleTester;
 
 const error = 'All possible CSS classes should be documented';
