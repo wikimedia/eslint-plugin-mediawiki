@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require( '../rules/msg-doc' );
+const rule = require( '../src/rules/msg-doc' );
 const RuleTester = require( 'eslint' ).RuleTester;
 
 const error = 'All possible message keys should be documented';
