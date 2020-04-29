@@ -4,6 +4,8 @@ const utils = require( '../utils.js' );
 
 // TODO: Support `new mw.Message( store, key )` syntax
 const methodNames = [ 'msg', 'message', 'deferMsg' ];
+// Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Localisation#Using_messages
+const message = 'All possible message keys should be documented. See https://w.wiki/PRw for details.';
 
 module.exports = {
 	meta: {
@@ -29,8 +31,7 @@ module.exports = {
 				if ( utils.requiresCommentList( context, node.arguments[ 0 ] ) ) {
 					context.report( {
 						node: node,
-						message: 'All possible message keys should be documented'
-						// TODO: Link to documentation page
+						message: message
 					} );
 				}
 			}
