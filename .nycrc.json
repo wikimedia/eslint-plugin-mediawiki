@@ -1,7 +1,7 @@
 {
 	"all": true,
 	"include": [
-		"rules/**/*.js"
+		"src/**/*.js"
 	],
 	"check-coverage": true,
 	"per-file": true,
