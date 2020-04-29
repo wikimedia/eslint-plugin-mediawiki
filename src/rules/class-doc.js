@@ -7,7 +7,8 @@ const utils = require( '../utils.js' );
 const jQueryMethodNames = [ 'addClass', 'removeClass', 'toggleClass' ];
 const domMethodNames = [ 'add', 'remove', 'replace', 'toggle' ];
 
-const message = 'All possible CSS classes should be documented';
+// Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Coding_conventions/CSS#Constructed_class_names
+const message = 'All possible CSS classes should be documented. See https://w.wiki/PS2 for details.';
 
 function isPropName( node, prop ) {
 	return (
@@ -41,7 +42,6 @@ module.exports = {
 					context.report( {
 						node: node,
 						message: message
-						// TODO: Link to documentation page
 					} );
 				}
 			},
@@ -55,7 +55,6 @@ module.exports = {
 					context.report( {
 						node: node,
 						message: message
-						// TODO: Link to documentation page
 					} );
 				}
 			},
@@ -84,7 +83,6 @@ module.exports = {
 				context.report( {
 					node: node,
 					message: message
-					// TODO: Link to documentation page
 				} );
 			}
 		};

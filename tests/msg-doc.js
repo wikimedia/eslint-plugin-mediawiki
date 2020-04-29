@@ -3,7 +3,7 @@
 const rule = require( '../src/rules/msg-doc' );
 const RuleTester = require( 'eslint' ).RuleTester;
 
-const error = 'All possible message keys should be documented';
+const error = 'All possible message keys should be documented. See https://w.wiki/PRw for details.';
 
 const ruleTester = new RuleTester();
 ruleTester.run( 'msg-doc', rule, {

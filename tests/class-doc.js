@@ -3,7 +3,8 @@
 const rule = require( '../src/rules/class-doc' );
 const RuleTester = require( 'eslint' ).RuleTester;
 
-const error = 'All possible CSS classes should be documented';
+// Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Coding_conventions/CSS#Constructed_class_names
+const error = 'All possible CSS classes should be documented. See https://w.wiki/PS2 for details.';
 
 const ruleTester = new RuleTester( {
 	parserOptions: { ecmaVersion: 2019 }
