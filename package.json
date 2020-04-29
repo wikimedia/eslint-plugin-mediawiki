@@ -29,8 +29,8 @@
 	},
 	"devDependencies": {
 		"eslint": "^6.4.0",
-		"eslint-config-wikimedia": "^0.15.1",
-		"mocha": "^7.1.1",
+		"eslint-config-wikimedia": "^0.15.3",
+		"mocha": "^7.1.2",
 		"nyc": "^15.0.1"
 	},
 	"bugs": {
