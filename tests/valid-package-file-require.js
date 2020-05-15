@@ -1,6 +1,6 @@
 const rule = require( '../src/rules/valid-package-file-require' );
 const path = require( 'path' );
-const RuleTester = require( 'eslint' ).RuleTester;
+const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
 const ruleTester = new RuleTester();
 const testFileName = path.resolve( __dirname + '/sandbox/test.js' );

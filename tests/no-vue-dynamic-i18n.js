@@ -1,6 +1,6 @@
 const rule = require( '../src/rules/no-vue-dynamic-i18n' );
 const path = require( 'path' );
-const RuleTester = require( 'eslint' ).RuleTester;
+const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
 const errorMessage = 'Dynamic message keys should not be used in templates. Use a computed property instead.';
 

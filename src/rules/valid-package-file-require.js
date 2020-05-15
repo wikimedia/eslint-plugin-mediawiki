@@ -26,6 +26,9 @@ function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) 
 module.exports = {
 	meta: {
 		type: 'problem',
+		docs: {
+			description: 'Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).'
+		},
 		messages: {
 			badFilePath: 'Incorrect file path in require(): use {{ fullRelativeFilePath }} instead'
 		},

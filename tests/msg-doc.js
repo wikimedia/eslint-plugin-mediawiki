@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../src/rules/msg-doc' );
-const RuleTester = require( 'eslint' ).RuleTester;
+const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
 const error = 'All possible message keys should be documented. See https://w.wiki/PRw for details.';
 
