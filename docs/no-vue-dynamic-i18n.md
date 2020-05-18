@@ -4,7 +4,7 @@ Prohibits dynamic i18n message keys in Vue templates
 
 ## Rule details
 
-❌ The following patterns are considered errors:
+❌ Examples of **incorrect** code:
 ```js
 <template><p>{{ $i18n( msgkey ) }}</p></template>;
 <template><p>{{ $i18n( msgkey, param1, param2 ) }}</p></template>;
@@ -17,7 +17,7 @@ Prohibits dynamic i18n message keys in Vue templates
 <template><p v-i18n-html="$i18n( msgkey ).params( [ param1, param2 ] )" /></template>
 ```
 
-✔️ The following patterns are not considered errors:
+✔️ Examples of **correct** code:
 ```js
 <template><p>{{ $i18n( 'foo' ) }}</p></template>;
 <template><p>{{ $i18n( 'foo', param1, param2 ) }}</p></template>;
