@@ -4,7 +4,7 @@ Ensures message keys are documented when they are constructed.
 
 ## Rule details
 
-❌ The following patterns are considered errors:
+❌ Examples of **incorrect** code:
 ```js
 message = mw.msg( 'foo-' + bar );
 message = mw.msg( cond ? 'baz' : 'foo-' + bar );
@@ -25,7 +25,7 @@ message = mw.msg( 'foo-' + bar );
 display( mw.msg( 'foo-' + bar ), baz );
 ```
 
-✔️ The following patterns are not considered errors:
+✔️ Examples of **correct** code:
 ```js
 // The following messages are used here:
 // * foo-baz

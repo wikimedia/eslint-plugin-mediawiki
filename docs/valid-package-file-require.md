@@ -4,7 +4,7 @@ Ensures `require`d files are in the format that is expected within [ResourceLoad
 
 ## Rule details
 
-❌ The following patterns are considered errors:
+❌ Examples of **incorrect** code:
 ```js
 var foo = require( './foo' );
 var foo = require( '../foo' );
@@ -13,7 +13,7 @@ var foo = require( './quux' );
 var foo = require( 'quux.json' );
 ```
 
-✔️ The following patterns are not considered errors:
+✔️ Examples of **correct** code:
 ```js
 var foo = require();
 var foo = require( './foo.js' );
@@ -26,7 +26,7 @@ var foo = require( '../foo.js' );
 var foo = require( './../foo.js' );
 ```
 
-🔧 The `--fix` option can be used to fix problems reported by this rule:
+🔧 Examples of code **fixed** by using  `--fix`:
 ```js
 var foo = require( './foo' );     /* → */ var foo = require( './foo.js' );
 var foo = require( '../foo' );    /* → */ var foo = require( '../foo.js' );

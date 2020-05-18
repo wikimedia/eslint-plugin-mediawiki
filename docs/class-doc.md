@@ -4,7 +4,7 @@ Ensures CSS classes are documented when they are constructed.
 
 ## Rule details
 
-❌ The following patterns are considered errors:
+❌ Examples of **incorrect** code:
 ```js
 $el.addClass( 'foo-' + bar );
 $el.addClass( [ 'foo', bar ] );
@@ -30,7 +30,7 @@ new OO.ui.ButtonWidget( { classes: [ 'foo-' + bar ] } );
 new OO.ui.ButtonWidget( { classes: [ 'foo', enabled ? 'enabled' + mode : 'disabled' ] } );
 ```
 
-✔️ The following patterns are not considered errors:
+✔️ Examples of **correct** code:
 ```js
 // The following classes are used here:
 // * foo-baz
