@@ -70,7 +70,7 @@ ruleTester.run( 'msg-doc', rule, {
 	].map( function ( code ) {
 		return {
 			code: code,
-			errors: [ { message: error, type: 'CallExpression' } ]
+			errors: [ { message: error } ]
 		};
 	} )
 } );

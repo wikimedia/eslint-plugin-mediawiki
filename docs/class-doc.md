@@ -26,7 +26,6 @@ element.classList.toggle( 'foo', 'bar' + baz );
 element.className = 'foo' + bar;
 element.className = cond ? 'foo' : 'bar' + baz;
 new OO.ui.ButtonWidget( { classes: [ 'foo-' + bar ] } );
-new OO.ui.ButtonWidget( { classes: [ 'foo-' + bar ] } );
 new OO.ui.ButtonWidget( { classes: [ 'foo', enabled ? 'enabled' + mode : 'disabled' ] } );
 ```
 
@@ -51,7 +50,6 @@ $el.addClass("foo-bar");
 $el.removeClass("foo-bar");
 $el.toggleClass("foo-bar");
 $el.addClass(["foo", "bar"]);
-$el.addClass();
 element.className = "foo";
 element["className"] = "foo";
 element.className = cond ? "foo" : "bar";
@@ -63,12 +61,10 @@ object.property.add("foo" + bar);
 foo("bar").add("foo" + bar);
 add("foo" + bar);
 new OO.ui.ButtonWidget( { classes: ["foo"] } );
-new OO.ui.ButtonWidget( { "classes": ["foo"] } );
 new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" : "disabled"] } );
 new OO.ui.ButtonWidget( { classes: enabled ? ["foo", "bar"] : ["baz", "quux"] } );
 new OO.ui.ButtonWidget( { classes: enabled ? ( framed ? "ef": "eu" ) : ( framed ? "df" : "du" ) } );
 new OO.ui.ButtonWidget( { framed: false } );
-new OO.ui.ButtonWidget( { framed: false, ...config } )
 ```
 
 ## Resources
