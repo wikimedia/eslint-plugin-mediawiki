@@ -112,25 +112,12 @@ ruleTester.run( 'class-doc', rule, {
 			'element.classList.add("foo", "bar" + baz)',
 			'element.classList.remove("foo", "bar" + baz)',
 			'element.classList.replace("foo", "bar" + baz)',
-			'element.classList.toggle("foo", "bar" + baz)'
+			'element.classList.toggle("foo", "bar" + baz)',
 
-		].map( function ( code ) {
-			return Object.assign( {
-				errors: [ { message: error, type: 'CallExpression' } ]
-			}, typeof code === 'string' ? { code: code } : code );
-		} )
-	).concat(
-		[
 			// == DOM:className ==
 			'element.className = "foo" + bar',
-			'element.className = cond ? "foo" : "bar" + baz'
-		].map( function ( code ) {
-			return Object.assign( {
-				errors: [ { message: error, type: 'AssignmentExpression' } ]
-			}, typeof code === 'string' ? { code: code } : code );
-		} )
-	).concat(
-		[
+			'element.className = cond ? "foo" : "bar" + baz',
+
 			// == OOUI ==
 			'new OO.ui.ButtonWidget( { classes: ["foo-" + bar] } )',
 			{
@@ -138,10 +125,8 @@ ruleTester.run( 'class-doc', rule, {
 				noDoc: true
 			},
 			'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" + mode : "disabled"] } )'
-		].map( function ( code ) {
-			return Object.assign( {
-				errors: [ { message: error, type: 'ObjectExpression' } ]
-			}, typeof code === 'string' ? { code: code } : code );
-		} )
+		].map( ( test ) => Object.assign( {
+			errors: [ { message: error } ]
+		}, typeof test === 'string' ? { code: test } : test ) )
 	)
 } );
