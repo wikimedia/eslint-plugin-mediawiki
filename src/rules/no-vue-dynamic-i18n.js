@@ -8,10 +8,10 @@ module.exports = {
 		docs: {
 			description: 'Prohibits dynamic i18n message keys in Vue templates'
 		},
+		schema: [],
 		messages: {
 			'dynamic-i18n': 'Dynamic message keys should not be used in templates. Use a computed property instead.'
-		},
-		schema: []
+		}
 	},
 	create( context ) {
 		return vueUtils.defineTemplateBodyVisitor( context, {
