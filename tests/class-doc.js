@@ -126,7 +126,7 @@ ruleTester.run( 'class-doc', rule, {
 			},
 			'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" + mode : "disabled"] } )'
 		].map( ( test ) => Object.assign( {
-			errors: [ { message: error } ]
+			errors: [ error ]
 		}, typeof test === 'string' ? { code: test } : test ) )
 	)
 } );
