@@ -2,6 +2,17 @@
 	"extends": [
 		"wikimedia",
 		"wikimedia/node",
-		"wikimedia/language/es2016"
-	]
+		"wikimedia/language/es2016",
+		"plugin:eslint-plugin/all"
+	],
+	"plugins": [
+		"eslint-plugin"
+	],
+	"rules": {
+		"eslint-plugin/require-meta-docs-description": "off",
+		"eslint-plugin/require-meta-docs-url": "off",
+		"eslint-plugin/test-case-property-ordering": [ "error",
+			[ "code", "output", "filename", "options", "parserOptions", "settings", "errors" ]
+		]
+	}
 }

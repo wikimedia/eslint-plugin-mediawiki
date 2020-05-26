@@ -29,10 +29,11 @@ module.exports = {
 		docs: {
 			description: 'Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).'
 		},
+		fixable: 'code',
+		schema: [],
 		messages: {
 			badFilePath: 'Incorrect file path in require(): use {{ fullRelativeFilePath }} instead'
-		},
-		fixable: 'code'
+		}
 	},
 
 	create: function ( context ) {
