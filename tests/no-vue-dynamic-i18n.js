@@ -38,8 +38,6 @@ ruleTester.run( 'no-vue-dynamic-i18n', rule, {
 	].map( ( code ) => ( {
 		code,
 		filename: testFileName,
-		errors: [
-			{ message: errorMessage }
-		]
+		errors: [ errorMessage ]
 	} ) )
 } );

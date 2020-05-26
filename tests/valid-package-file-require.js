@@ -51,41 +51,31 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			code: 'var foo = require( \'./foo\' );',
 			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
-			errors: [
-				{ message: 'Incorrect file path in require(): use ./foo.js instead' }
-			]
+			errors: [ 'Incorrect file path in require(): use ./foo.js instead' ]
 		},
 		{
 			code: 'var foo = require( \'../foo\' );',
 			output: 'var foo = require( \'../foo.js\' );',
 			filename: path.resolve( __dirname + '/sandbox/nested/test.js' ),
-			errors: [
-				{ message: 'Incorrect file path in require(): use ../foo.js instead' }
-			]
+			errors: [ 'Incorrect file path in require(): use ../foo.js instead' ]
 		},
 		{
 			code: 'var foo = require( \'foo.js\' );',
 			output: 'var foo = require( \'./foo.js\' );',
 			filename: testFileName,
-			errors: [
-				{ message: 'Incorrect file path in require(): use ./foo.js instead' }
-			]
+			errors: [ 'Incorrect file path in require(): use ./foo.js instead' ]
 		},
 		{
 			code: 'var foo = require( \'./quux\' );',
 			output: 'var foo = require( \'./quux.json\' );',
 			filename: testFileName,
-			errors: [
-				{ message: 'Incorrect file path in require(): use ./quux.json instead' }
-			]
+			errors: [ 'Incorrect file path in require(): use ./quux.json instead' ]
 		},
 		{
 			code: 'var foo = require( \'quux.json\' );',
 			output: 'var foo = require( \'./quux.json\' );',
 			filename: testFileName,
-			errors: [
-				{ message: 'Incorrect file path in require(): use ./quux.json instead' }
-			]
+			errors: [ 'Incorrect file path in require(): use ./quux.json instead' ]
 		}
 	]
 } );
