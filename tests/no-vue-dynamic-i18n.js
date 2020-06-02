@@ -1,3 +1,5 @@
+'use strict';
+
 const rule = require( '../src/rules/no-vue-dynamic-i18n' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;

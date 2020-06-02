@@ -1,3 +1,5 @@
+'use strict';
+
 function countListItems( sourceCode, node, countedLines ) {
 	const comments = sourceCode.getCommentsInside( node )
 		.concat( sourceCode.getCommentsBefore( node ) );
