@@ -43,7 +43,10 @@ ruleTester.run( 'class-doc', rule, {
 
 		// == DOM:className ==
 		'element.className = "foo"',
-		'element["className"] = "foo"',
+		{
+			code: 'element["className"] = "foo"',
+			noDoc: true
+		},
 		'element.className = cond ? "foo" : "bar"',
 
 		// == DOM:classList ==
