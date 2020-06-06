@@ -19,10 +19,10 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 ```
 
 ## Rules
-* [`mediawiki/class-doc`](docs/class-doc.md)
-* [`mediawiki/msg-doc`](docs/msg-doc.md)
-* [`mediawiki/valid-package-file-require`](docs/valid-package-file-require.md)
-* [`mediawiki/no-vue-dynamic-i18n`](docs/no-vue-dynamic-i18n.md)
+* [`mediawiki/class-doc`](docs/rules/class-doc.md)
+* [`mediawiki/msg-doc`](docs/rules/msg-doc.md)
+* [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md)
+* [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md)
 
 ## Development
 
