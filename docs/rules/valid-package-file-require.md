@@ -2,6 +2,8 @@
 
 Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).
 
+🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 ## Rule details
 
 ❌ Examples of **incorrect** code:
@@ -26,7 +28,7 @@ var foo = require( '../foo.js' );
 var foo = require( './../foo.js' );
 ```
 
-🔧 Examples of code **fixed** by using  `--fix`:
+🔧 Examples of code **fixed** by this rule:
 ```js
 var foo = require( './foo' );     /* → */ var foo = require( './foo.js' );
 var foo = require( '../foo' );    /* → */ var foo = require( '../foo.js' );
