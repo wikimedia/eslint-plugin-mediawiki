@@ -44,9 +44,9 @@ display( mw.msg( 'foo-' + bar ), baz );
 message = mw.msg( 'foo-' + bar );
 
 $foo
-// The following messages are used here:
-// * foo-baz
-// * foo-quux
+    // The following messages are used here:
+    // * foo-baz
+    // * foo-quux
     .text( mw.msg( 'foo-' + bar ) );
 
 message = mw.msg( test ? 'foo' : 'bar' );
