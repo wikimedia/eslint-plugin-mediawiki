@@ -16,7 +16,7 @@
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc mocha --reporter dot tests/ && git diff --exit-code docs/",
-		"doc": "del-cli docs/rules/* && env DOCGEN=1 mocha --reporter dot tests/",
+		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/",
 		"build": "npm run doc"
 	},
 	"files": [
@@ -30,6 +30,7 @@
 		"eslint": ">=5.0.0"
 	},
 	"devDependencies": {
+		"cross-env": "^7.0.2",
 		"del-cli": "^3.0.1",
 		"eslint-config-wikimedia": "^0.16.1",
 		"eslint-docgen": "^0.4.1",
