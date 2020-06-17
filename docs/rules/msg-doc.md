@@ -61,4 +61,4 @@ message = mw.msg();
 ## Resources
 
 * [Rule source](/src/rules/msg-doc.js)
-* [Test source](/tests/msg-doc.js)
+* [Test source](/tests/rules/msg-doc.js)

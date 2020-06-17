@@ -77,4 +77,4 @@ new OO.ui.ButtonWidget( { framed: false } );
 ## Resources
 
 * [Rule source](/src/rules/class-doc.js)
-* [Test source](/tests/class-doc.js)
+* [Test source](/tests/rules/class-doc.js)

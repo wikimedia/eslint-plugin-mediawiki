@@ -33,4 +33,4 @@ Prohibits dynamic i18n message keys in Vue templates
 ## Resources
 
 * [Rule source](/src/rules/no-vue-dynamic-i18n.js)
-* [Test source](/tests/no-vue-dynamic-i18n.js)
+* [Test source](/tests/rules/no-vue-dynamic-i18n.js)

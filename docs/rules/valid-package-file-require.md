@@ -40,4 +40,4 @@ var foo = require( 'quux.json' ); /* → */ var foo = require( './quux.json' );
 ## Resources
 
 * [Rule source](/src/rules/valid-package-file-require.js)
-* [Test source](/tests/valid-package-file-require.js)
+* [Test source](/tests/rules/valid-package-file-require.js)
