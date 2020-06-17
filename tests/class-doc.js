@@ -2,6 +2,7 @@
 
 const rule = require( '../src/rules/class-doc' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const outdent = require( 'outdent' );
 
 // Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Coding_conventions/CSS#Constructed_class_names
 const error = 'All possible CSS classes should be documented. See https://w.wiki/PS2 for details.';
@@ -12,22 +13,25 @@ const ruleTester = new RuleTester( {
 ruleTester.run( 'class-doc', rule, {
 	valid: [
 		// == jQuery ==
-		'// The following classes are used here:\n' +
-		'// * foo-baz\n' +
-		'// * foo-quux\n' +
-		'display( $el.addClass("foo-" + bar), baz )',
+		outdent`
+		// The following classes are used here:
+		// * foo-baz
+		// * foo-quux
+		display( $el.addClass("foo-" + bar), baz )`,
 
-		'// The following classes are used here:\n' +
-		'// * foo-baz\n' +
-		'// * foo-quux\n' +
-		'// * foo-whee\n' +
-		'$el.addClass("foo-" + bar)',
+		outdent`
+		// The following classes are used here:
+		// * foo-baz
+		// * foo-quux
+		// * foo-whee
+		$el.addClass("foo-" + bar)`,
 
-		'$foo\n' +
-		'// The following classes are used here:\n' +
-		'// * foo-baz\n' +
-		'// * foo-quux\n' +
-		'.text($el.addClass("foo-" + bar))',
+		outdent`
+		$foo
+			// The following classes are used here:
+			// * foo-baz
+			// * foo-quux
+			.text($el.addClass("foo-" + bar))`,
 
 		'$el.addClass(test ? "foo" : "bar")',
 		'$el.addClass("foo-bar")',
@@ -95,21 +99,24 @@ ruleTester.run( 'class-doc', rule, {
 			'$el.addClass( ["foo", bar] )',
 
 			// Not enough classes
-			'// This can produce:\n' +
-			'// * foo-bar-baz\n' +
-			'$el.addClass( "foo-" + bar )',
+			outdent`
+			// This can produce:
+			// * foo-bar-baz
+			$el.addClass( "foo-" + bar )`,
 
 			// Wrong format
-			'// This constructs foo-baz or foo-quux\n' +
-			'$el.addClass( "foo-" + bar )',
+			outdent`
+			// This constructs foo-baz or foo-quux
+			$el.addClass( "foo-" + bar )`,
 
 			// Block comments are ignored as the extra `*`'s are confusing
-			'/**\n' +
-			' The following classes are used here:\n' +
-			' * foo-baz\n' +
-			' * foo-quux\n' +
-			' */\n' +
-			'display( $el.addClass("foo-" + bar), baz )',
+			outdent`
+			/**
+			 The following classes are used here:
+			 * foo-baz
+			 * foo-quux
+			 */
+			display( $el.addClass("foo-" + bar), baz )`,
 
 			// == DOM:classList ==
 			'element.classList.add("foo", "bar" + baz)',

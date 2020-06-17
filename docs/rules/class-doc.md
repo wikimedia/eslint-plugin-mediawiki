@@ -48,9 +48,9 @@ display( $el.addClass( 'foo-' + bar ), baz );
 $el.addClass( 'foo-' + bar );
 
 $foo
-// The following classes are used here:
-// * foo-baz
-// * foo-quux
+    // The following classes are used here:
+    // * foo-baz
+    // * foo-quux
     .text( $el.addClass( 'foo-' + bar ) );
 
 $el.addClass( test ? 'foo' : 'bar' );
