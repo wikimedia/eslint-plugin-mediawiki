@@ -16,7 +16,7 @@
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc mocha --reporter dot tests/ && git diff --exit-code docs/",
-		"doc": "rm -f docs/rules/* && mocha --reporter dot tests/ --doc",
+		"doc": "del-cli docs/rules/* && mocha --reporter dot tests/ --doc",
 		"build": "npm run doc"
 	},
 	"files": [
@@ -30,6 +30,7 @@
 		"eslint": ">=5.0.0"
 	},
 	"devDependencies": {
+		"del-cli": "^3.0.1",
 		"eslint-config-wikimedia": "^0.16.1",
 		"eslint-docgen": "^0.4.0",
 		"eslint-plugin-eslint-plugin": "^2.2.2",
