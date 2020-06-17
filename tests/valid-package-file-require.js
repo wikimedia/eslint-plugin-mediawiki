@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../src/rules/valid-package-file-require' );
-const path = require( 'path' );
+const path = require( 'upath' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
 const ruleTester = new RuleTester();

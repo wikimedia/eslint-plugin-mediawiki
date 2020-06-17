@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require( 'path' );
+const path = require( 'upath' );
 
 function dotSlashPrefixIfMissing( fileName ) {
 	return fileName.indexOf( '.' ) !== 0 ? `./${fileName}` : fileName;
@@ -15,9 +15,7 @@ function getFullRelativeFilePath( name, context ) {
 		dotSlashPrefixIfMissing( name ),
 		{ paths: [ contextDirPath ] }
 	);
-	const relativePath = path.relative( contextDirPath, absolutePath )
-		// On Windows systems, this returns a path with backslashes (\), change them to slashes (/)
-		.replace( /\\/g, '/' );
+	const relativePath = path.relative( contextDirPath, absolutePath );
 
 	return dotSlashPrefixIfMissing( relativePath );
 }
