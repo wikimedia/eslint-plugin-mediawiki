@@ -9,35 +9,14 @@ const testFileName = path.resolve( __dirname + '/sandbox/test.js' );
 
 ruleTester.run( 'valid-package-file-require', rule, {
 	valid: [
-		{
-			// Not valid code, but out of scope for this rule
-			code: 'var foo = require();',
-			filename: testFileName
-		},
-		{
-			code: 'var foo = require( \'./foo.js\' );',
-			filename: testFileName
-		},
-		{
-			code: 'var foo = require( \'./quux.json\' );',
-			filename: testFileName
-		},
-		{
-			code: 'var foo = require( \'./virtual.json\' );',
-			filename: testFileName
-		},
-		{
-			code: 'var bar = require( \'../valid-package-file-require.js\' );',
-			filename: testFileName
-		},
-		{
-			code: 'var foo = require( \'foo\' );',
-			filename: testFileName
-		},
-		{
-			code: 'var bar = require( \'bar\' );',
-			filename: testFileName
-		},
+		// Not valid code, but out of scope for this rule
+		'var foo = require();',
+		'var foo = require( \'./foo.js\' );',
+		'var foo = require( \'./quux.json\' );',
+		'var foo = require( \'./virtual.json\' );',
+		'var bar = require( \'../valid-package-file-require.js\' );',
+		'var foo = require( \'foo\' );',
+		'var bar = require( \'bar\' );',
 		{
 			code: 'var foo = require( \'../foo.js\' );',
 			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
@@ -46,7 +25,9 @@ ruleTester.run( 'valid-package-file-require', rule, {
 			code: 'var foo = require( \'./../foo.js\' );',
 			filename: path.resolve( __dirname + '/sandbox/nested/test.js' )
 		}
-	],
+	].map( ( test ) => Object.assign( {
+		filename: testFileName
+	}, typeof test === 'string' ? { code: test } : test ) ),
 
 	invalid: [
 		{
