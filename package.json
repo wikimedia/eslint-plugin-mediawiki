@@ -16,7 +16,7 @@
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc mocha --reporter dot tests/ && git diff --exit-code docs/",
-		"doc": "rm -f docs/rules/* && mocha --reporter dot tests/** --doc",
+		"doc": "rm -f docs/rules/* && mocha --reporter dot tests/ --doc",
 		"build": "npm run doc"
 	},
 	"files": [
