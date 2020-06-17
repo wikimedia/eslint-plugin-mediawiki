@@ -15,7 +15,9 @@ function getFullRelativeFilePath( name, context ) {
 		dotSlashPrefixIfMissing( name ),
 		{ paths: [ contextDirPath ] }
 	);
-	const relativePath = path.relative( contextDirPath, absolutePath );
+	const relativePath = path.relative( contextDirPath, absolutePath )
+		// On Windows systems, this returns a path with backslashes (\), change them to slashes (/)
+		.replace( /\\/g, '/' );
 
 	return dotSlashPrefixIfMissing( relativePath );
 }
