@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require( '../src/rules/msg-doc' );
+const rule = require( '../../src/rules/msg-doc' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 const outdent = require( 'outdent' );
 

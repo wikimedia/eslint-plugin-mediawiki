@@ -1,6 +1,6 @@
 'use strict';
 
-const rule = require( '../src/rules/no-vue-dynamic-i18n' );
+const rule = require( '../../src/rules/no-vue-dynamic-i18n' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
@@ -9,7 +9,7 @@ const errorMessage = 'Dynamic message keys should not be used in templates. Use 
 const ruleTester = new RuleTester( {
 	parser: require.resolve( 'vue-eslint-parser' )
 } );
-const testFileName = path.resolve( __dirname + '/sandbox/test.vue' );
+const testFileName = path.resolve( __dirname, '../sandbox/test.vue' );
 
 ruleTester.run( 'no-vue-dynamic-i18n', rule, {
 	valid: [

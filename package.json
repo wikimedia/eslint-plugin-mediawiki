@@ -15,8 +15,8 @@
 	"main": "src/index.js",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "nyc mocha --reporter dot tests/ && git diff --exit-code docs/",
-		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/",
+		"test": "nyc mocha --reporter dot tests/ tests/rules/ && git diff --exit-code docs/",
+		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/**",
 		"build": "npm run doc"
 	},
 	"files": [
