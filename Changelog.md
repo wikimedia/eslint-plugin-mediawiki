@@ -1,7 +1,7 @@
 # eslint-plugin-mediawiki release history
 
 ## v0.2.5
-* Rule fix: valid-package-file-require: Deal with backslashes in Windows paths (Roan Kattouw)
+* Rule fix: `valid-package-file-require`: Deal with backslashes in Windows paths (Roan Kattouw)
 * Code: Use upath for Windows path normalization, add Windows to tests (Ed Sanders)
 * Docs: Move docs to docs/rules (Ed Sanders)
 * Docs: Documentation cleanup (Ed Sanders)
