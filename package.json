@@ -35,7 +35,7 @@
 		"eslint-config-wikimedia": "^0.16.1",
 		"eslint-docgen": "^0.4.3",
 		"eslint-plugin-eslint-plugin": "^2.2.2",
-		"mocha": "^7.2.0",
+		"mocha": "^8.0.1",
 		"nyc": "^15.1.0",
 		"outdent": "^0.7.1"
 	},
