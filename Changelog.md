@@ -1,16 +1,16 @@
 # eslint-plugin-mediawiki release history
 
 ## v0.2.5
-* Rule fix: valid-package-file-require: Deal with backslashes in Windows paths (#46) (Roan Kattouw)
-* Code: Use upath for Windows path normalization, add Windows to tests (#48) (Ed Sanders)
-* Docs: Move docs to docs/rules (#42) (Ed Sanders)
-* Docs: Documentation cleanup (#37) (Ed Sanders)
+* Rule fix: valid-package-file-require: Deal with backslashes in Windows paths (Roan Kattouw)
+* Code: Use upath for Windows path normalization, add Windows to tests (Ed Sanders)
+* Docs: Move docs to docs/rules (Ed Sanders)
+* Docs: Documentation cleanup (Ed Sanders)
 * Docs: Use eslint-docgen (Ed Sanders)
-* Tests: Move test rules to tests/rules (#49) (Ed Sanders)
-* Tests: Simplify error message string assertions (#39) (Ed Sanders)
-* Tests: Use outdent for multi-line test cases (#47) (Ed Sanders)
-* Build: Introduce eslint-plugin-eslint-plugin (#38) (Ed Sanders)
-* Build: Update devDependencies and remove explicit eslint dependency (#43) (Ed Sanders)
+* Tests: Move test rules to tests/rules (Ed Sanders)
+* Tests: Simplify error message string assertions (Ed Sanders)
+* Tests: Use outdent for multi-line test cases (Ed Sanders)
+* Build: Introduce eslint-plugin-eslint-plugin (Ed Sanders)
+* Build: Update devDependencies and remove explicit eslint dependency (Ed Sanders)
 * Build: Update ESLint to 7.0.0 (Ed Sanders)
 * Build: Increase ESLint peerDependency from 2.3.0 to 5.0.0 (Ed Sanders)
 
