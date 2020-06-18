@@ -1,15 +1,29 @@
 # eslint-plugin-mediawiki release history
 
+## v0.2.5
+* Rule fix: valid-package-file-require: Deal with backslashes in Windows paths (#46) (Roan Kattouw)
+* Code: Use upath for Windows path normalization, add Windows to tests (#48) (Ed Sanders)
+* Docs: Move docs to docs/rules (#42) (Ed Sanders)
+* Docs: Documentation cleanup (#37) (Ed Sanders)
+* Docs: Use eslint-docgen (Ed Sanders)
+* Tests: Move test rules to tests/rules (#49) (Ed Sanders)
+* Tests: Simplify error message string assertions (#39) (Ed Sanders)
+* Tests: Use outdent for multi-line test cases (#47) (Ed Sanders)
+* Build: Introduce eslint-plugin-eslint-plugin (#38) (Ed Sanders)
+* Build: Update devDependencies and remove explicit eslint dependency (#43) (Ed Sanders)
+* Build: Update ESLint to 7.0.0 (Ed Sanders)
+* Build: Increase ESLint peerDependency from 2.3.0 to 5.0.0 (Ed Sanders)
+
 ## v0.2.4
 * Rule fix: `valid-package-file-require`: Allow ./ prefix when going up the dir tree (Jakob Warkotsch)
 * Rule fix: `valid-package-file-require`: Check if require() arg looks like a path (Roan Kattouw)
 * Rule fix: `valid-package-file-require`: Make fixable (Roan Kattouw)
 * Rule fix: `valid-package-file-require`: Report correct file path in error message (Roan Kattouw)
 * Rule fix: Link to documentation for `class-doc` & `msg-doc` rules (Ed Sanders)
-* Add rule types (Ed Sanders)
-* build: Add code coverage report and set threshold to 100% (Ed Sanders)
-* build: Update devDependencies (Ed Sanders)
-* code: Move rules and index.js to src (Ed Sanders)
+* Build: Add code coverage report and set threshold to 100% (Ed Sanders)
+* Build: Update devDependencies (Ed Sanders)
+* Code: Add rule types (Ed Sanders)
+* Code: Move rules and index.js to src (Ed Sanders)
 
 ## v0.2.3
 * New rule: `no-vue-dynamic-i18n` (Roan Kattouw)
