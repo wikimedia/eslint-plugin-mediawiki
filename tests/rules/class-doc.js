@@ -42,14 +42,14 @@ ruleTester.run( 'class-doc', rule, {
 		'$el.addClass(["foo", "bar"])',
 		{
 			code: '$el.addClass()',
-			noDoc: true
+			docgen: false
 		},
 
 		// == DOM:className ==
 		'element.className = "foo"',
 		{
 			code: 'element["className"] = "foo"',
-			noDoc: true
+			docgen: false
 		},
 		'element.className = cond ? "foo" : "bar"',
 
@@ -71,7 +71,7 @@ ruleTester.run( 'class-doc', rule, {
 
 		{
 			code: 'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
-			noDoc: true
+			docgen: false
 		},
 
 		// Ternary in array
@@ -89,7 +89,7 @@ ruleTester.run( 'class-doc', rule, {
 		// ES2019 object spread
 		{
 			code: 'new OO.ui.ButtonWidget( { framed: false, ...config } )',
-			noDoc: true
+			docgen: false
 		}
 	],
 	invalid: (
@@ -132,7 +132,7 @@ ruleTester.run( 'class-doc', rule, {
 			'new OO.ui.ButtonWidget( { classes: ["foo-" + bar] } )',
 			{
 				code: 'new OO.ui.ButtonWidget( { "classes": ["foo-" + bar] } )',
-				noDoc: true
+				docgen: false
 			},
 			'new OO.ui.ButtonWidget( { classes: ["foo", enabled ? "enabled" + mode : "disabled"] } )'
 		].map( ( test ) => Object.assign( {
