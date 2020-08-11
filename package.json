@@ -32,10 +32,10 @@
 	"devDependencies": {
 		"cross-env": "^7.0.2",
 		"del-cli": "^3.0.1",
-		"eslint-config-wikimedia": "^0.16.1",
-		"eslint-docgen": "^0.4.3",
-		"eslint-plugin-eslint-plugin": "^2.2.2",
-		"mocha": "^8.0.1",
+		"eslint-config-wikimedia": "^0.16.2",
+		"eslint-docgen": "^0.4.4",
+		"eslint-plugin-eslint-plugin": "^2.3.0",
+		"mocha": "^8.1.1",
 		"nyc": "^15.1.0",
 		"outdent": "^0.7.1"
 	},
