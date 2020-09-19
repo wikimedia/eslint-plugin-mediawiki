@@ -27,6 +27,40 @@ message = mw.msg( 'foo-' + bar );
  * foo-quux
  */
 display( mw.msg( 'foo-' + bar ), baz );
+
+function foo() {
+    const first = mw.msg( 'foo-' + baz ),
+        // This can produce:
+        // * bar-x
+        // * bar-y
+        second = mw.msg( 'bar-' + baz );
+}
+
+function foo() {
+    const
+        // This can produce:
+        // * foo-x
+        // * foo-y
+        first = mw.msg( 'foo-' + baz ),
+        second = mw.msg( 'bar-' + baz );
+}
+
+function foo() {
+    // This can produce:
+    // * foo-x
+    // * foo-y
+    const first = mw.msg( 'foo-' + baz ),
+        second = mw.msg( 'bar-' + baz );
+}
+
+function foo() {
+    let first = mw.msg( 'foo-' + baz ), second;
+    bar.quux();
+    // This can produce:
+    // * bar-x
+    // * bar-y
+    second = mw.msg( 'bar-' + baz );
+}
 ```
 
 ✔️ Examples of **correct** code:
@@ -48,6 +82,29 @@ $foo
     // * foo-baz
     // * foo-quux
     .text( mw.msg( 'foo-' + bar ) );
+
+function foo() {
+    const
+        // This can produce:
+        // * foo-x
+        // * foo-y
+        first = mw.msg( 'foo-' + baz ),
+        // This can produce:
+        // * bar-x
+        // * bar-y
+        second = mw.msg( 'bar-' + baz );
+}
+
+function foo() {
+    // This can produce:
+    // * foo-x
+    // * foo-y
+    const first = mw.msg( 'foo-' + baz ),
+        // This can produce:
+        // * bar-x
+        // * bar-y
+        second = mw.msg( 'bar-' + baz );
+}
 
 message = mw.msg( test ? 'foo' : 'bar' );
 message = mw.msg( test ? ( test2 ? 'foo' : 'bar' ) : ( test2 ? 'baz' : 'quux' ) );
