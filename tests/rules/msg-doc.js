@@ -142,8 +142,7 @@ ruleTester.run( 'msg-doc', rule, {
 			// * bar-x
 			// * bar-y
 			second = mw.msg( 'bar-' + baz );
-		}
-		`
+		}`
 
 	].map( function ( code ) {
 		return {
