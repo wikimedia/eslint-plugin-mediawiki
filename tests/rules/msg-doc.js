@@ -29,6 +29,33 @@ ruleTester.run( 'msg-doc', rule, {
 			// * foo-quux
 			.text(mw.msg("foo-" + bar))`,
 
+		// The comment for the first variable declaration may be inside the var statement...
+		outdent`
+		function foo() {
+			var
+				// This can produce:
+				// * foo-x
+				// * foo-y
+				first = mw.msg( 'foo-' + baz ),
+				// This can produce:
+				// * bar-x
+				// * bar-y
+				second = mw.msg( 'bar-' + baz );
+		}`,
+
+		// ...or above the var statement
+		outdent`
+		function foo() {
+			// This can produce:
+			// * foo-x
+			// * foo-y
+			var first = mw.msg( 'foo-' + baz ),
+				// This can produce:
+				// * bar-x
+				// * bar-y
+				second = mw.msg( 'bar-' + baz );
+		}`,
+
 		'message = mw.msg(test ? "foo" : "bar")',
 
 		'message = mw.msg(test ? (test2 ? "foo" : "bar") : (test2 ? "baz" : "quux"))',
@@ -73,7 +100,49 @@ ruleTester.run( 'msg-doc', rule, {
 		 * foo-baz
 		 * foo-quux
 		 */
-		display( mw.msg("foo-" + bar), baz )`
+		display( mw.msg("foo-" + bar), baz )`,
+
+		// A comment for the second variable does not count for the first variable
+		outdent`
+		function foo() {
+			var first = mw.msg( 'foo-' + baz ),
+				// This can produce:
+				// * bar-x
+				// * bar-y
+				second = mw.msg( 'bar-' + baz );
+		}`,
+
+		// A comment for the first variable does not count for the second variable
+		outdent`
+		function foo() {
+			var
+				// This can produce:
+				// * foo-x
+				// * foo-y
+				first = mw.msg( 'foo-' + baz ),
+				second = mw.msg( 'bar-' + baz );
+		}`,
+
+		// A comment above the var statement only counts for the first variable, not the second
+		outdent`
+		function foo() {
+			// This can produce:
+			// * foo-x
+			// * foo-y
+			var first = mw.msg( 'foo-' + baz ),
+				second = mw.msg( 'bar-' + baz );
+		}`,
+
+		// A comment elsewhere in the function does not count for a variable declaration
+		outdent`
+		function foo() {
+			var first = mw.msg( 'foo-' + baz ), second;
+			bar.quux();
+			// This can produce:
+			// * bar-x
+			// * bar-y
+			second = mw.msg( 'bar-' + baz );
+		}`
 
 	].map( function ( code ) {
 		return {
