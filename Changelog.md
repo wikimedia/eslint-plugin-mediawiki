@@ -1,5 +1,10 @@
 # eslint-plugin-mediawiki release history
 
+## v0.2.6
+* Rule fix: `msg-doc`/`class-doc`: Fix behavior in var statements (Roan Kattouw)
+* Build: Update devDependencies (Ed Sanders)
+* Build: Add codecov reporting (Ed Sanders)
+
 ## v0.2.5
 * Rule fix: `valid-package-file-require`: Deal with backslashes in Windows paths (Roan Kattouw)
 * Code: Use upath for Windows path normalization, add Windows to tests (Ed Sanders)
