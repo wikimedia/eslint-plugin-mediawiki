@@ -16,6 +16,8 @@
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "nyc mocha --reporter dot tests/ tests/rules/ && git diff --exit-code docs/",
+		"report": "nyc report --reporter=text-lcov > coverage.lcov",
+		"reporthtml": "nyc report --reporter=html",
 		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/**",
 		"build": "npm run doc"
 	},
@@ -30,6 +32,7 @@
 		"eslint": ">=5.0.0"
 	},
 	"devDependencies": {
+		"codecov": "^3.7.2",
 		"cross-env": "^7.0.2",
 		"del-cli": "^3.0.1",
 		"eslint-config-wikimedia": "^0.16.2",
