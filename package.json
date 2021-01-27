@@ -32,7 +32,7 @@
 		"eslint": ">=5.0.0"
 	},
 	"devDependencies": {
-		"codecov": "^3.7.2",
+		"codecov": "^3.8.1",
 		"cross-env": "^7.0.2",
 		"del-cli": "^3.0.1",
 		"eslint-config-wikimedia": "^0.18.1",
