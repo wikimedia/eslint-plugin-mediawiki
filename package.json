@@ -25,7 +25,7 @@
 		"src"
 	],
 	"dependencies": {
-		"eslint-plugin-vue": "^6.2.2",
+		"eslint-plugin-vue": "^7.4.1",
 		"upath": "^1.2.0"
 	},
 	"peerDependencies": {
