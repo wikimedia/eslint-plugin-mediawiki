@@ -35,7 +35,7 @@
 		"codecov": "^3.7.2",
 		"cross-env": "^7.0.2",
 		"del-cli": "^3.0.1",
-		"eslint-config-wikimedia": "^0.17.0",
+		"eslint-config-wikimedia": "^0.18.1",
 		"eslint-docgen": "^0.4.4",
 		"eslint-plugin-eslint-plugin": "^2.3.0",
 		"mocha": "^8.1.3",
