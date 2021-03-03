@@ -1,5 +1,11 @@
 # eslint-plugin-mediawiki release history
 
+## v0.2.7
+* Upgrade eslint-plugin-vue to ^7.7.0 to match eslint-config-wikimedia (James D. Forrester)
+* build: Upgrade eslint-config-wikimedia from 0.17.0 to 0.18.1 (James D. Forrester)
+* build: Upgrade codecov from ^3.7.2 to ^3.8.1 (James D. Forrester)
+* build: Upgrade outdent from ^0.7.1 to ^0.8.0 (James D. Forrester)
+
 ## v0.2.6
 * Rule fix: `msg-doc`/`class-doc`: Fix behavior in var statements (Roan Kattouw)
 * Build: Update devDependencies (Ed Sanders)
