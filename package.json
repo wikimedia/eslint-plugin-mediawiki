@@ -25,20 +25,20 @@
 		"src"
 	],
 	"dependencies": {
-		"eslint-plugin-vue": "^7.8.0",
+		"eslint-plugin-vue": "^7.11.1",
 		"upath": "^2.0.1"
 	},
 	"peerDependencies": {
 		"eslint": ">=5.0.0"
 	},
 	"devDependencies": {
-		"codecov": "^3.8.1",
+		"codecov": "^3.8.2",
 		"cross-env": "^7.0.3",
 		"del-cli": "^3.0.1",
-		"eslint-config-wikimedia": "^0.19.0",
+		"eslint-config-wikimedia": "^0.20.0",
 		"eslint-docgen": "^0.4.5",
-		"eslint-plugin-eslint-plugin": "^2.3.0",
-		"mocha": "^8.3.2",
+		"eslint-plugin-eslint-plugin": "^3.0.3",
+		"mocha": "^8.4.0",
 		"nyc": "^15.1.0",
 		"outdent": "^0.8.0"
 	},
