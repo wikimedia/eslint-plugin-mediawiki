@@ -32,6 +32,11 @@ module.exports = {
 		// Must be a Vue file, look for `module.exports =`
 		return {
 			AssignmentExpression: ( node ) => {
+				// Sanity check that its the correct type of node
+				if ( node.type !== 'AssignmentExpression' ) {
+					return;
+				}
+
 				// Early return if its not `module.exports =`
 				if ( node.operator !== '=' ||
 					node.left.type !== 'MemberExpression' ||
