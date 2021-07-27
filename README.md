@@ -23,6 +23,7 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 * [`mediawiki/msg-doc`](docs/rules/msg-doc.md)
 * [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md)
 * [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md)
+* [`mediawiki/vue-exports-component-directive`](docs/rules/vue-exports-component-directive.md)
 
 ## Development
 
