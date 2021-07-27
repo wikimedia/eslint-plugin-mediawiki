@@ -4,28 +4,72 @@ Complains about vue files where the `module.exports =` declaration is not preced
 
 ## Rule details
 
-❌ Example of **incorrect** code:
-```vue
+❌ Examples of **incorrect** code:
+```js
+
 <template>
-	<p>Placeholder</p>
+    <p>Placeholder...</p>
 </template>
 <script>
-module.exports = {
-	name: 'Placeholder'
-};
-</script>
-```
+module.exports = {};
+</script>;
 
-✔️ Example of **correct** code:
-```vue
 <template>
-	<p>Placeholder</p>
+    <p>Placeholder...</p>
 </template>
 <script>
 // @vue/component
-module.exports = {
-	name: 'Placeholder'
-};
+
+module.exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.exports = {};
+// @vue/component
+</script>
+```
+
+✔️ Examples of **correct** code:
+```js
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+// @vue/component
+module.exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+/* @vue/component */
+module.exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.exports += 5;
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.imports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+foo.exports = {};
 </script>
 ```
 
