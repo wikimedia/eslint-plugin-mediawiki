@@ -30,8 +30,9 @@ function makeVueFileContent( scriptContents ) {
 
 ruleTester.run( 'vue-exports-component-directive', rule, {
 	valid: [
-		// Correctly using the directive
+		// Correctly using the directive (both types of comments work)
 		{ code: makeVueFileContent( '// @vue/component\nmodule.exports = {};' ), filename: vueFileName },
+		{ code: makeVueFileContent( '/* @vue/component */\nmodule.exports = {};' ), filename: vueFileName },
 		// Not a Vue file
 		{ code: 'module.exports = {};', filename: jsFileName },
 		// Vue file but not setting module.exports
@@ -42,6 +43,10 @@ ruleTester.run( 'vue-exports-component-directive', rule, {
 
 	invalid: [
 		// Missing directive
-		{ code: makeVueFileContent( 'module.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] }
+		{ code: makeVueFileContent( 'module.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] },
+		// Directive is on the wrong line (one line too high)
+		{ code: makeVueFileContent( '// @vue/component\n\nmodule.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] },
+		// Directive is on the wrong line (after the module.exports)
+		{ code: makeVueFileContent( 'module.exports = {};\n// @vue/component' ), filename: vueFileName, errors: [ errorMessage ] }
 	]
 } );
