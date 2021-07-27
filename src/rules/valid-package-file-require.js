@@ -51,8 +51,8 @@ module.exports = {
 				}
 
 				const requiredFileOrModule = node.arguments[ 0 ].value;
-				// Check if the argument starts with ./ or ../, or ends with .js or .json
-				if ( !requiredFileOrModule.match( /(^\.\.?\/)|(\.(js|json)$)/ ) ) {
+				// Check if the argument starts with ./ or ../, or ends with .js, .json, or .vue
+				if ( !requiredFileOrModule.match( /(^\.\.?\/)|(\.(js|json|vue)$)/ ) ) {
 					// If not, it's probably a ResourceLoader module; ignore
 					return;
 				}
