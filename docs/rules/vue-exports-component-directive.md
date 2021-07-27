@@ -1,6 +1,6 @@
 # vue-exports-component-directive
 
-Complains about vue files where the `module.exports =` declaration is not preceded by a comment `// @vue/component`. This comment is used to trigger eslint-plugin-vue rules to run.
+Require `// @vue/component` directives to trigger eslint-plugin-vue rules
 
 ## Rule details
 
