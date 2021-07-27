@@ -43,7 +43,7 @@ module.exports = {
 					node.left.object.type !== 'Identifier' ||
 					node.left.object.name !== 'module' ||
 					node.left.property.type !== 'Identifier' ||
-					node.left.property.name !== 'exports' ||
+					node.left.property.name !== 'exports'
 				) {
 					return;
 				}
