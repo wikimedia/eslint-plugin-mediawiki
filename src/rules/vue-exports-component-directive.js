@@ -24,7 +24,7 @@ module.exports = {
 		// Don't trigger on files that don't end in .vue
 		const fileName = context.getFilename();
 		const fileExt = path.extname( fileName );
-		if ( fileExt !== '' ) {
+		if ( fileExt !== '.vue' ) {
 			// No rules
 			return {};
 		}
