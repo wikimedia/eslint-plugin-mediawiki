@@ -33,8 +33,9 @@ ruleTester.run( 'vue-exports-component-directive', rule, {
 		// Correctly using the directive (both types of comments work)
 		{ code: makeVueFileContent( '// @vue/component\nmodule.exports = {};' ), filename: vueFileName },
 		{ code: makeVueFileContent( '/* @vue/component */\nmodule.exports = {};' ), filename: vueFileName },
-		// Not a Vue file
-		{ code: 'module.exports = {};', filename: jsFileName },
+		// Not a Vue file. Don't show this in the docs because its unclear from the output
+		// that its non a Vue file
+		{ code: 'module.exports = {};', filename: jsFileName, docgen: false },
 		// Vue file but not setting module.exports
 		{ code: makeVueFileContent( 'module.exports += 5;' ), filename: vueFileName },
 		{ code: makeVueFileContent( 'module.imports = {};' ), filename: vueFileName },
