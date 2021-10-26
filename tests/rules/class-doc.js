@@ -90,6 +90,13 @@ ruleTester.run( 'class-doc', rule, {
 		{
 			code: 'new OO.ui.ButtonWidget( { framed: false, ...config } )',
 			docgen: false
+		},
+
+		// JSON input
+		{
+			code: '{ "classes": { "foo": "bar" } }',
+			parser: require.resolve( 'eslint-plugin-json-es' ),
+			docgen: false
 		}
 	],
 	invalid: (
