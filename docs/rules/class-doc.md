@@ -37,7 +37,6 @@ new OO.ui.ButtonWidget( { classes: [ 'foo', enabled ? 'enabled' + mode : 'disabl
 
 ✔️ Examples of **correct** code:
 ```js
-
 // The following classes are used here:
 // * foo-baz
 // * foo-quux

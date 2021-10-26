@@ -7,8 +7,7 @@ Require `// @vue/component` directives to trigger eslint-plugin-vue rules
 ## Rule details
 
 ❌ Examples of **incorrect** code:
-```js
-
+```vue
 <template>
     <p>Placeholder...</p>
 </template>
@@ -35,8 +34,7 @@ module.exports = {};
 ```
 
 ✔️ Examples of **correct** code:
-```js
-
+```vue
 <template>
     <p>Placeholder...</p>
 </template>
