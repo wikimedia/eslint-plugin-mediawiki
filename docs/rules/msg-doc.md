@@ -67,7 +67,6 @@ function foo() {
 
 ✔️ Examples of **correct** code:
 ```js
-
 // The following messages are used here:
 // * foo-baz
 // * foo-quux

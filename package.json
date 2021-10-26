@@ -36,7 +36,7 @@
 		"cross-env": "^7.0.3",
 		"del-cli": "^3.0.1",
 		"eslint-config-wikimedia": "^0.20.0",
-		"eslint-docgen": "^0.5.1",
+		"eslint-docgen": "^0.6.0",
 		"eslint-plugin-eslint-plugin": "^3.6.1",
 		"mocha": "^9.1.2",
 		"nyc": "^15.1.0",
