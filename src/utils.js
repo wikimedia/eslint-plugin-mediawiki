@@ -61,6 +61,13 @@ function requiresCommentList( context, node ) {
 		checkNode = checkNode.parent;
 	}
 
+	// In custom parsers (e.g. eslint-plugin-json-es) we can reach the top
+	// of the tree. If this happens, don't report any errors.
+	// https://github.com/wikimedia/eslint-plugin-mediawiki/issues/59
+	if ( !checkNode ) {
+		return false;
+	}
+
 	// Allow documentation for the first VariableDeclarator in a VariableDeclaration to be
 	// above the VariableDeclaration. But don't look inside the VariableDeclaration, because that
 	// would allow the documentation for a different variable to be counted.
