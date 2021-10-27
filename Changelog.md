@@ -1,5 +1,13 @@
 # eslint-plugin-mediawiki release history
 
+## v0.3.0
+* Breaking change: Drop Node 10 support (Ed Sanders)
+* New rule: `vue-exports-component-directive` (DannyS712)
+* Rule fix: `valid-package-file-require`: also support vue (DannyS712)
+* Rule fix: `class-doc`: Support eslint-plugin-json-es parser (Ed Sanders)
+* Docs: Update eslint-docgen to 0.6.1 (Ed Sanders)
+* Build: Update dependencies (Ed Sanders)
+
 ## v0.2.7
 * Upgrade eslint-plugin-vue to ^7.7.0 to match eslint-config-wikimedia (James D. Forrester)
 * build: Upgrade eslint-config-wikimedia from 0.17.0 to 0.18.1 (James D. Forrester)
