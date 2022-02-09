@@ -37,6 +37,7 @@ ruleTester.run( 'class-doc', rule, {
 		'$el.addClass("foo-bar")',
 		'$el.removeClass("foo-bar")',
 		'$el.toggleClass("foo-bar")',
+		'$el.toggleClass("foo-bar", foo || bar)',
 
 		// Undocumented feature of jQuery methods:
 		'$el.addClass(["foo", "bar"])',
@@ -57,7 +58,8 @@ ruleTester.run( 'class-doc', rule, {
 		'element.classList.add("foo", "bar")',
 		'element.classList.remove("foo", "bar")',
 		'element.classList.replace("foo", "bar")',
-		'element.classList.toggle("foo", "bar")',
+		'element.classList.toggle("foo")',
+		'element.classList.toggle("foo", bar || baz)',
 
 		// Non-classList "add"
 		'object.property.add("foo" + bar)',
@@ -129,7 +131,8 @@ ruleTester.run( 'class-doc', rule, {
 			'element.classList.add("foo", "bar" + baz)',
 			'element.classList.remove("foo", "bar" + baz)',
 			'element.classList.replace("foo", "bar" + baz)',
-			'element.classList.toggle("foo", "bar" + baz)',
+			'element.classList.toggle("bar" + baz)',
+			'element.classList.toggle("bar" + baz, foo || bar)',
 
 			// == DOM:className ==
 			'element.className = "foo" + bar',

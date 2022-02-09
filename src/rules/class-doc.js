@@ -74,7 +74,20 @@ module.exports = {
 						domMethodNames.includes( node.callee.property.name ) &&
 						node.callee.object.property &&
 						isPropName( node.callee.object.property, 'classList' ) &&
-						node.arguments.some( ( arg ) => utils.requiresCommentList( context, arg ) )
+						(
+							// For 'toggle' only check the first arg
+							(
+								node.callee.property.name === 'toggle' &&
+								utils.requiresCommentList( context, node.arguments[ 0 ] )
+							) ||
+							// ...otherwise check all args
+							(
+								node.callee.property.name !== 'toggle' &&
+								node.arguments.some(
+									( arg ) => utils.requiresCommentList( context, arg )
+								)
+							)
+						)
 					)
 				) {
 					return;
