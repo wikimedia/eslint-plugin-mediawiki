@@ -22,7 +22,7 @@ function getFullRelativeFilePath( name, context ) {
 
 function isValidPackageFileRequireForPath( requiredFile, fullRelativeFilePath ) {
 	return requiredFile === fullRelativeFilePath ||
-		requiredFile.startsWith( './../' ) && requiredFile.substr( 2 ) === fullRelativeFilePath;
+		requiredFile.startsWith( './../' ) && requiredFile.slice( 2 ) === fullRelativeFilePath;
 }
 
 module.exports = {
