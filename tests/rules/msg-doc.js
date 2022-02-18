@@ -4,7 +4,7 @@ const rule = require( '../../src/rules/msg-doc' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 const outdent = require( 'outdent' );
 
-const error = 'All possible message keys should be documented. See https://w.wiki/PRw for details.';
+const error = 'All possible message keys should be documented. See https://w.wiki/4r9a for details.';
 
 const ruleTester = new RuleTester();
 ruleTester.run( 'msg-doc', rule, {
