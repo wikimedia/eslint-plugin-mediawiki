@@ -1,5 +1,13 @@
 # eslint-plugin-mediawiki release history
 
+## v0.4.0
+
+* New rule: `no-nodelist-unsupported-methods` (Ed Sanders)
+* New rule: `no-extended-unicode-identifiers` (Roan Kattouw)
+* Rule fix: `msg-doc`: Fix short URL to rule help page (Sam Wilson)
+* Rule fix: `class-doc`: Fix linting of classList.toggle (Ed Sanders)
+* Build: Update eslint-plugin-vue from ^7.20.0 to ^8.7.1 (Ed Sanders)
+
 ## v0.3.0
 * Breaking change: Drop Node 10 support (Ed Sanders)
 * New rule: `vue-exports-component-directive` (DannyS712)
