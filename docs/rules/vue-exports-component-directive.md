@@ -4,6 +4,8 @@
 
 Require `// @vue/component` directives to trigger eslint-plugin-vue rules
 
+📋 This rule is enabled in `plugin:mediawiki/vue`.
+
 ## Rule details
 
 ❌ Examples of **incorrect** code:

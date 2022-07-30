@@ -4,6 +4,8 @@
 
 Ensures CSS classes are documented when they are constructed.
 
+📋 This rule is enabled in `plugin:mediawiki/common`.
+
 ## Rule details
 
 ❌ Examples of **incorrect** code:
