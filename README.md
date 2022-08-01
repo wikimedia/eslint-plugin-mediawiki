@@ -18,11 +18,34 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 }
 ```
 
+There are two shared configs: `vue` which contains all Vue-related rules, and `common` which includes all other rules.
+
+```json
+{
+  "plugins": [
+    "mediawiki"
+  ],
+  "extends": [
+    "plugin:mediawiki/common"
+  ],
+  "overrides": [
+    {
+      "files": [ "**/*.vue" ],
+      "extends": [
+        "plugin:mediawiki/vue"
+      ]
+    }
+  ]
+}
+```
+
 ## Rules
 * [`mediawiki/class-doc`](docs/rules/class-doc.md)
 * [`mediawiki/msg-doc`](docs/rules/msg-doc.md)
-* [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md)
+* [`mediawiki/no-extended-unicode-identifiers`](docs/rules/no-extended-unicode-identifiers.md)
+* [`mediawiki/no-nodelist-unsupported-methods`](docs/rules/no-nodelist-unsupported-methods.md)
 * [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md)
+* [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md)
 * [`mediawiki/vue-exports-component-directive`](docs/rules/vue-exports-component-directive.md)
 
 ## Development

@@ -4,6 +4,8 @@
 
 Prohibits dynamic i18n message keys in Vue templates
 
+📋 This rule is enabled in `plugin:mediawiki/vue`.
+
 ## Rule details
 
 ❌ Examples of **incorrect** code:
