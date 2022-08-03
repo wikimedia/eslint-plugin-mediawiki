@@ -32,6 +32,13 @@ module.exports = {};
 <script>
 module.exports = {};
 // @vue/component
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.exports = notDefineComponent( {} );
 </script>
 ```
 
@@ -51,6 +58,28 @@ module.exports = {};
 <script>
 /* @vue/component */
 module.exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.exports = defineComponent( {} );
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+// @vue/component
+module.exports = exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+module.exports = exports = defineComponent( {} );
 </script>;
 
 <template>
