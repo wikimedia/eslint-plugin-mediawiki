@@ -56,6 +56,13 @@ ruleTester.run( 'msg-doc', rule, {
 				second = mw.msg( 'bar-' + baz );
 		}`,
 
+		outdent`
+		// This can produce:
+		// * foo-x
+		// * foo-y
+		new mw.Message( 'foo-' + baz)
+		`,
+
 		'message = mw.msg(test ? "foo" : "bar")',
 
 		'message = mw.msg(test ? (test2 ? "foo" : "bar") : (test2 ? "baz" : "quux"))',
@@ -74,6 +81,7 @@ ruleTester.run( 'msg-doc', rule, {
 		'message = mw.msg( "foo-" + bar )',
 
 		'message = mw.msg( cond ? "baz" : "foo-" + bar )',
+		'message = new mw.Message( cond ? "baz" : "foo-" + bar )',
 
 		// Not enough messages
 		outdent`
