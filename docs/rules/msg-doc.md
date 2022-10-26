@@ -13,6 +13,7 @@ Ensures message keys are documented when they are constructed.
 message = mw.msg( 'foo-' + bar );
 message = mw.msg( cond ? 'baz' : 'foo-' + bar );
 message = new mw.Message( cond ? 'baz' : 'foo-' + bar );
+message = this.$i18n( 'foo-' + bar );
 
 // This can produce:
 // * foo-bar-baz
@@ -86,6 +87,11 @@ $foo
     // * foo-baz
     // * foo-quux
     .text( mw.msg( 'foo-' + bar ) );
+
+// The following messages are used here:
+// * foo-baz
+// * foo-quux
+this.$i18n( 'foo-' + bar );
 
 function foo() {
     const
