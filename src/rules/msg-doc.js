@@ -3,7 +3,7 @@
 const utils = require( '../utils.js' );
 
 // TODO: Support `new mw.Message( store, key )` syntax
-const methodNames = [ 'msg', 'message', 'deferMsg' ];
+const methodNames = [ 'msg', 'message', 'deferMsg', '$i18n' ];
 // Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Help:System_message#Using_messages
 const message = 'All possible message keys should be documented. See https://w.wiki/4r9a for details.';
 

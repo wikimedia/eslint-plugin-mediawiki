@@ -29,6 +29,12 @@ ruleTester.run( 'msg-doc', rule, {
 			// * foo-quux
 			.text(mw.msg("foo-" + bar))`,
 
+		outdent`
+		// The following messages are used here:
+		// * foo-baz
+		// * foo-quux
+		this.$i18n("foo-" + bar)`,
+
 		// The comment for the first variable declaration may be inside the var statement...
 		outdent`
 		function foo() {
@@ -82,6 +88,7 @@ ruleTester.run( 'msg-doc', rule, {
 
 		'message = mw.msg( cond ? "baz" : "foo-" + bar )',
 		'message = new mw.Message( cond ? "baz" : "foo-" + bar )',
+		'message = this.$i18n( "foo-" + bar )',
 
 		// Not enough messages
 		outdent`
