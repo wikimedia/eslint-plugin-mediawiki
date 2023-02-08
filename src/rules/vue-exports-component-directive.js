@@ -43,6 +43,28 @@ module.exports = {
 					return;
 				}
 
+				// Look at what comes after `module.exports =`, skipping over `exports =` if present
+				let assignedValue = node.right;
+				if ( assignedValue.type === 'AssignmentExpression' &&
+					assignedValue.operator === '=' &&
+					assignedValue.left.type === 'Identifier' &&
+					assignedValue.left.name === 'exports'
+				) {
+					assignedValue = assignedValue.right;
+				}
+
+				// Check if what comes after `module.exports =` is a defineComponent() call
+				if (
+					assignedValue.type === 'CallExpression' &&
+					assignedValue.callee.type === 'Identifier' &&
+					assignedValue.callee.name === 'defineComponent'
+				) {
+					// We have module.exports = defineComponent( ... ) or
+					// module.exports = exports = defineComponent( ... ), so no directive comment
+					// is needed
+					return;
+				}
+
 				// Get all the comments that match the directive, the same way that
 				// eslint-plugin-vue does
 				const commentTokens = context.getSourceCode()
