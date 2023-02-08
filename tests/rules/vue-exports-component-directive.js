@@ -33,6 +33,11 @@ ruleTester.run( 'vue-exports-component-directive', rule, {
 		// Correctly using the directive (both types of comments work)
 		{ code: makeVueFileContent( '// @vue/component\nmodule.exports = {};' ), filename: vueFileName },
 		{ code: makeVueFileContent( '/* @vue/component */\nmodule.exports = {};' ), filename: vueFileName },
+		// Using defineComponent without a directive
+		{ code: makeVueFileContent( 'module.exports = defineComponent( {} );' ), filename: vueFileName },
+		// Using module.exports = exports = ...
+		{ code: makeVueFileContent( '// @vue/component\nmodule.exports = exports = {};' ), filename: vueFileName },
+		{ code: makeVueFileContent( 'module.exports = exports = defineComponent( {} );' ), filename: vueFileName },
 		// Not a Vue file. Don't show this in the docs because its unclear from the output
 		// that its non a Vue file
 		{ code: 'module.exports = {};', filename: jsFileName, docgen: false },
@@ -48,6 +53,8 @@ ruleTester.run( 'vue-exports-component-directive', rule, {
 		// Directive is on the wrong line (one line too high)
 		{ code: makeVueFileContent( '// @vue/component\n\nmodule.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] },
 		// Directive is on the wrong line (after the module.exports)
-		{ code: makeVueFileContent( 'module.exports = {};\n// @vue/component' ), filename: vueFileName, errors: [ errorMessage ] }
+		{ code: makeVueFileContent( 'module.exports = {};\n// @vue/component' ), filename: vueFileName, errors: [ errorMessage ] },
+		// Calling a function that is not defineComponent
+		{ code: makeVueFileContent( 'module.exports = notDefineComponent( {} );' ), filename: vueFileName, errors: [ errorMessage ] }
 	]
 } );
