@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-mediawiki",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "MediaWiki-specific linting rules, for use in MediaWiki core and extensions.",
 	"repository": {
 		"type": "git",
@@ -22,27 +22,27 @@
 		"build": "npm run doc"
 	},
 	"engine": {
-		"node": ">=12"
+		"node": ">=14"
 	},
 	"files": [
 		"src"
 	],
 	"dependencies": {
-		"eslint-plugin-vue": "^8.7.1",
+		"eslint-plugin-vue": "^9.9.0",
 		"upath": "^2.0.1"
 	},
 	"peerDependencies": {
-		"eslint": ">=5.0.0"
+		"eslint": ">=8.33.0"
 	},
 	"devDependencies": {
 		"codecov": "^3.8.3",
 		"cross-env": "^7.0.3",
-		"del-cli": "^4.0.1",
-		"eslint-config-wikimedia": "^0.22.1",
-		"eslint-docgen": "^0.7.0",
-		"eslint-plugin-eslint-plugin": "^4.1.0",
+		"del-cli": "^5.0.0",
+		"eslint-config-wikimedia": "^0.24.0",
+		"eslint-docgen": "^0.7.1",
+		"eslint-plugin-eslint-plugin": "^5.0.8",
 		"eslint-plugin-json-es": "^1.5.7",
-		"mocha": "^9.2.0",
+		"mocha": "^10.2.0",
 		"nyc": "^15.1.0",
 		"outdent": "^0.8.0"
 	},
