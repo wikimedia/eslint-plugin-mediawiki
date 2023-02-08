@@ -12,6 +12,7 @@ Ensures message keys are documented when they are constructed.
 ```js
 message = mw.msg( 'foo-' + bar );
 message = mw.msg( cond ? 'baz' : 'foo-' + bar );
+message = new mw.Message( cond ? 'baz' : 'foo-' + bar );
 
 // This can produce:
 // * foo-bar-baz
@@ -108,6 +109,11 @@ function foo() {
         // * bar-y
         second = mw.msg( 'bar-' + baz );
 }
+
+// This can produce:
+// * foo-x
+// * foo-y
+new mw.Message( 'foo-' + baz );
 
 message = mw.msg( test ? 'foo' : 'bar' );
 message = mw.msg( test ? ( test2 ? 'foo' : 'bar' ) : ( test2 ? 'baz' : 'quux' ) );

@@ -19,21 +19,30 @@ module.exports = {
 	create: function ( context ) {
 
 		return {
-			CallExpression: function ( node ) {
+			'CallExpression[callee.type="MemberExpression"]': function ( node ) {
 				if (
-					node.callee.type !== 'MemberExpression' ||
-					!methodNames.includes( node.callee.property.name ) ||
-					!node.arguments.length
+					methodNames.includes( node.callee.property.name ) &&
+					node.arguments.length &&
+					utils.requiresCommentList( context, node.arguments[ 0 ] )
 				) {
-					return;
-				}
-
-				if ( utils.requiresCommentList( context, node.arguments[ 0 ] ) ) {
 					context.report( {
 						node: node,
 						message: message
 					} );
 				}
+			},
+			'NewExpression[callee.type="MemberExpression"]': function ( node ) {
+				if (
+					node.callee.object.name === 'mw' &&
+					node.callee.property.name === 'Message' &&
+					utils.requiresCommentList( context, node.arguments[ 0 ] )
+				) {
+					context.report( {
+						node: node,
+						message: message
+					} );
+				}
+
 			}
 		};
 	}
