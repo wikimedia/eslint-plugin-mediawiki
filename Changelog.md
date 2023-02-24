@@ -1,7 +1,15 @@
 # eslint-plugin-mediawiki release history
 
-## v0.4.0
+## v0.5.0
+* [BREAKING CHANGE] Drop support for Node 12 (James D. Forrester)
+* Create `common` and `vue` shared configs (Ed Sanders)
+* Rule fix: `msg-doc`: Disallow `$i18n` calls with dynamic arguments without documentation (Florent)
+* Rule fix: `msg-doc`: Support `new msg.Message()` (Florent)
+* Rule fix: `vue-exports-component-directive`: Recognize `defineComponent()` (Roan Kattouw)
+* build: Upgrade eslint-docgen from ^0.7.0 to ^0.7.1 (James D. Forrester)
+* build: Upgrade eslint-config-wikimedia from ^0.22.1 to ^0.24.0 (James D. Forrester)
 
+## v0.4.0
 * New rule: `no-nodelist-unsupported-methods` (Ed Sanders)
 * New rule: `no-extended-unicode-identifiers` (Roan Kattouw)
 * Rule fix: `msg-doc`: Fix short URL to rule help page (Sam Wilson)
