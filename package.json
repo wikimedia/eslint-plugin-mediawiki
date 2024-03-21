@@ -28,7 +28,7 @@
 		"src"
 	],
 	"dependencies": {
-		"eslint-plugin-vue": "^8.7.1",
+		"eslint-plugin-vue": "^9.23.0",
 		"upath": "^2.0.1"
 	},
 	"peerDependencies": {
@@ -38,7 +38,7 @@
 		"codecov": "^3.8.3",
 		"cross-env": "^7.0.3",
 		"del-cli": "^4.0.1",
-		"eslint-config-wikimedia": "^0.24.0",
+		"eslint-config-wikimedia": "^0.26.0",
 		"eslint-docgen": "^0.7.1",
 		"eslint-plugin-eslint-plugin": "^4.1.0",
 		"eslint-plugin-json-es": "^1.5.7",
