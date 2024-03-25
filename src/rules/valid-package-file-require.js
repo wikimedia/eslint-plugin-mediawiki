@@ -3,7 +3,7 @@
 const path = require( 'upath' );
 
 function dotSlashPrefixIfMissing( fileName ) {
-	return fileName.indexOf( '.' ) !== 0 ? `./${fileName}` : fileName;
+	return fileName.indexOf( '.' ) !== 0 ? `./${ fileName }` : fileName;
 }
 
 function getFullRelativeFilePath( name, context ) {
@@ -74,7 +74,7 @@ module.exports = {
 						data: { fullRelativeFilePath },
 						fix( fixer ) {
 							const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
-							return fixer.replaceText( node.arguments[ 0 ], `'${escapedNewPath}'` );
+							return fixer.replaceText( node.arguments[ 0 ], `'${ escapedNewPath }'` );
 						}
 					} );
 				}

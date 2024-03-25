@@ -3,7 +3,7 @@
 const rule = require( '../../src/rules/no-nodelist-unsupported-methods' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 const errorMessage = function ( method ) {
-	return `NodeList.${method} not supported by Chrome<51, Firefox<50, Safari<10, IE & others. Use Array.prototype.${method}.call instead.`;
+	return `NodeList.${ method } not supported by Chrome<51, Firefox<50, Safari<10, IE & others. Use Array.prototype.${ method }.call instead.`;
 };
 
 const ruleTester = new RuleTester();
