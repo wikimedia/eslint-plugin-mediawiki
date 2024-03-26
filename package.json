@@ -42,7 +42,7 @@
 		"eslint-docgen": "^0.7.1",
 		"eslint-plugin-eslint-plugin": "^4.1.0",
 		"eslint-plugin-json-es": "^1.5.7",
-		"mocha": "^9.2.0",
+		"mocha": "^10.3.0",
 		"nyc": "^15.1.0",
 		"outdent": "^0.8.0"
 	},
