@@ -1,5 +1,14 @@
 # eslint-plugin-mediawiki release history
 
+## v0.6.0
+* [BREAKING CHANGE] Drop support for Node 14 (James D. Forrester)
+* Update eslint-plugin-vue to 9.23.0 (Roan Kattouw)
+
+—
+* build: Upgrade eslint-config-wikimedia to 0.26.0 (Roan Kattouw)
+* build: Upgrade mocha from ^9.2.0 to ^10.3.0) (James D. Forrester)
+* build: Add CI for Node 18 and 20; drop 14 (James D. Forrester)
+
 ## v0.5.0
 * [BREAKING CHANGE] Drop support for Node 12 (James D. Forrester)
 * Create `common` and `vue` shared configs (Ed Sanders)
