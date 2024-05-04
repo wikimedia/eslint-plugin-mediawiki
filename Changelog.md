@@ -1,5 +1,10 @@
 # eslint-plugin-mediawiki release history
 
+## v0.7.0
+* [BREAKING CHANGE] Drop claimed Node 16 support (James D. Forrester)
+* Rule fix: `vue-exports-component-directive`: Prefer `defineComponent()` (Roan Kattouw)
+* Rule fix: `vue-exports-component-directive`: Make fixable (Roan Kattouw)
+
 ## v0.6.0
 * [BREAKING CHANGE] Drop support for Node 14 (James D. Forrester)
 * Update eslint-plugin-vue to 9.23.0 (Roan Kattouw)
