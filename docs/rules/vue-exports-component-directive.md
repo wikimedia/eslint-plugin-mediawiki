@@ -6,6 +6,8 @@ Require `defineComponent()` calls or `// @vue/component` directives to trigger e
 
 📋 This rule is enabled in `plugin:mediawiki/vue`.
 
+🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 ## Rule details
 
 ❌ Examples of **incorrect** code:
@@ -39,6 +41,22 @@ module.exports = {};
 </template>
 <script>
 module.exports = notDefineComponent( {} );
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+const { defineComponent } = require( 'vue' );
+module.exports = {};
+</script>;
+
+<template>
+    <p>Placeholder...</p>
+</template>
+<script>
+const { ref } = require( 'vue' );
+module.exports = {};
 </script>
 ```
 
@@ -102,6 +120,52 @@ module.imports = {};
 <script>
 foo.exports = {};
 </script>
+```
+
+🔧 Examples of code **fixed** by this rule:
+```vue
+<template>                                    /* → */ <template>
+    <p>Placeholder...</p>                     /* → */     <p>Placeholder...</p>
+</template>                                   /* → */ </template>
+<script>                                      /* → */ <script>
+module.exports = {};                          /* → */ const { defineComponent } = require( 'vue' );
+</script>;                                    /* → */ module.exports = defineComponent( {} );
+                                              /* → */ </script>;
+
+<template>                                    /* → */ <template>
+    <p>Placeholder...</p>                     /* → */     <p>Placeholder...</p>
+</template>                                   /* → */ </template>
+<script>                                      /* → */ <script>
+// @vue/component                             /* → */ // @vue/component
+                                              /* → */
+module.exports = {};                          /* → */ const { defineComponent } = require( 'vue' );
+</script>;                                    /* → */ module.exports = defineComponent( {} );
+                                              /* → */ </script>;
+
+<template>                                    /* → */ <template>
+    <p>Placeholder...</p>                     /* → */     <p>Placeholder...</p>
+</template>                                   /* → */ </template>
+<script>                                      /* → */ <script>
+module.exports = {};                          /* → */ const { defineComponent } = require( 'vue' );
+// @vue/component                             /* → */ module.exports = defineComponent( {} );
+</script>;                                    /* → */ // @vue/component
+                                              /* → */ </script>;
+
+<template>                                    /* → */ <template>
+    <p>Placeholder...</p>                     /* → */     <p>Placeholder...</p>
+</template>                                   /* → */ </template>
+<script>                                      /* → */ <script>
+const { defineComponent } = require( 'vue' ); /* → */ const { defineComponent } = require( 'vue' );
+module.exports = {};                          /* → */ module.exports = defineComponent( {} );
+</script>;                                    /* → */ </script>;
+
+<template>                                    /* → */ <template>
+    <p>Placeholder...</p>                     /* → */     <p>Placeholder...</p>
+</template>                                   /* → */ </template>
+<script>                                      /* → */ <script>
+const { ref } = require( 'vue' );             /* → */ const { ref, defineComponent } = require( 'vue' );
+module.exports = {};                          /* → */ module.exports = defineComponent( {} );
+</script>                                     /* → */ </script>
 ```
 
 ## Resources
