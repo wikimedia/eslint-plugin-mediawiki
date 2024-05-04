@@ -22,7 +22,7 @@
 		"build": "npm run doc"
 	},
 	"engine": {
-		"node": ">=16"
+		"node": ">=18"
 	},
 	"files": [
 		"src"
