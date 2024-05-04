@@ -2,7 +2,7 @@
 
 # vue-exports-component-directive
 
-Require `// @vue/component` directives to trigger eslint-plugin-vue rules
+Require `defineComponent()` calls or `// @vue/component` directives to trigger eslint-plugin-vue rules
 
 📋 This rule is enabled in `plugin:mediawiki/vue`.
 

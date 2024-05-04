@@ -4,7 +4,7 @@ const rule = require( '../../src/rules/vue-exports-component-directive' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
-const errorMessage = 'The `// @vue/component` directive should be included on the line before module.exports';
+const errorMessage = 'Exported component definitions should be wrapped in `defineComponent()`, or have a `// @vue/component` comment above them.';
 
 const ruleTester = new RuleTester( {
 	parser: require.resolve( 'vue-eslint-parser' )
