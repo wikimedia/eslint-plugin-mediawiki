@@ -3,9 +3,8 @@
 const path = require( 'upath' );
 
 /**
- * Vue files should have `// @vue/component` before their
- * module.exports so that rules from eslint-plugin-vue are
- * triggered.
+ * Vue files should wrap their module.exports in `defineComponent()` or use
+ * `// @vue/component` so that rules from eslint-plugin-vue are triggered.
  *
  * @author DannyS712
  */
@@ -13,11 +12,11 @@ module.exports = {
 	meta: {
 		type: 'suggestion',
 		docs: {
-			description: 'Require `// @vue/component` directives to trigger eslint-plugin-vue rules'
+			description: 'Require `defineComponent()` calls or `// @vue/component` directives to trigger eslint-plugin-vue rules'
 		},
 		schema: [],
 		messages: {
-			'missing-directive': 'The `// @vue/component` directive should be included on the line before module.exports'
+			'missing-defineComponent': 'Exported component definitions should be wrapped in `defineComponent()`, or have a `// @vue/component` comment above them.'
 		}
 	},
 	create( context ) {
@@ -65,6 +64,7 @@ module.exports = {
 					return;
 				}
 
+				// Check if there's a // @vue/component comment
 				// Get all the comments that match the directive, the same way that
 				// eslint-plugin-vue does
 				const commentTokens = context.getSourceCode()
@@ -80,10 +80,10 @@ module.exports = {
 					return;
 				}
 
-				// Complain about missing directive
+				// Complain about missing defineComponent()
 				context.report( {
 					node,
-					messageId: 'missing-directive'
+					messageId: 'missing-defineComponent'
 				} );
 			}
 		};
