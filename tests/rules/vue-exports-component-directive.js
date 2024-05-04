@@ -4,7 +4,7 @@ const rule = require( '../../src/rules/vue-exports-component-directive' );
 const path = require( 'path' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
-const errorMessage = 'The `// @vue/component` directive should be included on the line before module.exports';
+const errorMessage = 'Exported component definitions should be wrapped in `defineComponent()`, or have a `// @vue/component` comment above them.';
 
 const ruleTester = new RuleTester( {
 	parser: require.resolve( 'vue-eslint-parser' )
@@ -49,12 +49,16 @@ ruleTester.run( 'vue-exports-component-directive', rule, {
 
 	invalid: [
 		// Missing directive
-		{ code: makeVueFileContent( 'module.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] },
+		{ code: makeVueFileContent( 'module.exports = {};' ), output: makeVueFileContent( "const { defineComponent } = require( 'vue' );\nmodule.exports = defineComponent( {} );" ), filename: vueFileName, errors: [ errorMessage ] },
 		// Directive is on the wrong line (one line too high)
-		{ code: makeVueFileContent( '// @vue/component\n\nmodule.exports = {};' ), filename: vueFileName, errors: [ errorMessage ] },
+		{ code: makeVueFileContent( '// @vue/component\n\nmodule.exports = {};' ), output: makeVueFileContent( "// @vue/component\n\nconst { defineComponent } = require( 'vue' );\nmodule.exports = defineComponent( {} );" ), filename: vueFileName, errors: [ errorMessage ] },
 		// Directive is on the wrong line (after the module.exports)
-		{ code: makeVueFileContent( 'module.exports = {};\n// @vue/component' ), filename: vueFileName, errors: [ errorMessage ] },
+		{ code: makeVueFileContent( 'module.exports = {};\n// @vue/component' ), output: makeVueFileContent( "const { defineComponent } = require( 'vue' );\nmodule.exports = defineComponent( {} );\n// @vue/component" ), filename: vueFileName, errors: [ errorMessage ] },
 		// Calling a function that is not defineComponent
-		{ code: makeVueFileContent( 'module.exports = notDefineComponent( {} );' ), filename: vueFileName, errors: [ errorMessage ] }
+		{ code: makeVueFileContent( 'module.exports = notDefineComponent( {} );' ), output: null, filename: vueFileName, errors: [ errorMessage ] },
+		// defineComponent is already defined
+		{ code: makeVueFileContent( "const { defineComponent } = require( 'vue' );\nmodule.exports = {};" ), output: makeVueFileContent( "const { defineComponent } = require( 'vue' );\nmodule.exports = defineComponent( {} );" ), filename: vueFileName, errors: [ errorMessage ] },
+		// There is already a require('vue') block
+		{ code: makeVueFileContent( "const { ref } = require( 'vue' );\nmodule.exports = {};" ), output: makeVueFileContent( "const { ref, defineComponent } = require( 'vue' );\nmodule.exports = defineComponent( {} );" ), filename: vueFileName, errors: [ errorMessage ] }
 	]
 } );
