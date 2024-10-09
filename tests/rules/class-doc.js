@@ -14,13 +14,13 @@ ruleTester.run( 'class-doc', rule, {
 	valid: [
 		// == jQuery ==
 		outdent`
-		// The following classes are used here:
+		// The following CSS classes are used here:
 		// * foo-baz
 		// * foo-quux
 		display( $el.addClass("foo-" + bar), baz )`,
 
 		outdent`
-		// The following classes are used here:
+		// The following CSS classes are used here:
 		// * foo-baz
 		// * foo-quux
 		// * foo-whee
@@ -28,7 +28,7 @@ ruleTester.run( 'class-doc', rule, {
 
 		outdent`
 		$foo
-			// The following classes are used here:
+			// The following CSS classes are used here:
 			// * foo-baz
 			// * foo-quux
 			.text($el.addClass("foo-" + bar))`,
@@ -121,7 +121,7 @@ ruleTester.run( 'class-doc', rule, {
 			// Block comments are ignored as the extra `*`'s are confusing
 			outdent`
 			/**
-			 The following classes are used here:
+			 The following CSS classes are used here:
 			 * foo-baz
 			 * foo-quux
 			 */

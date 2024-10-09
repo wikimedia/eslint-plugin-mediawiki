@@ -21,7 +21,7 @@ $el.addClass( 'foo-' + bar );
 $el.addClass( 'foo-' + bar );
 
 /**
- The following classes are used here:
+ The following CSS classes are used here:
  * foo-baz
  * foo-quux
  */
@@ -40,19 +40,19 @@ new OO.ui.ButtonWidget( { classes: [ 'foo', enabled ? 'enabled' + mode : 'disabl
 
 ✔️ Examples of **correct** code:
 ```js
-// The following classes are used here:
+// The following CSS classes are used here:
 // * foo-baz
 // * foo-quux
 display( $el.addClass( 'foo-' + bar ), baz );
 
-// The following classes are used here:
+// The following CSS classes are used here:
 // * foo-baz
 // * foo-quux
 // * foo-whee
 $el.addClass( 'foo-' + bar );
 
 $foo
-    // The following classes are used here:
+    // The following CSS classes are used here:
     // * foo-baz
     // * foo-quux
     .text( $el.addClass( 'foo-' + bar ) );
