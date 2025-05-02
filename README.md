@@ -3,9 +3,28 @@ MediaWiki-specific linting rules, for use in MediaWiki core and extensions.
 
 ## Usage
 
-__If you are developing in MediaWiki you should be using [eslint-config-wikimedia](https://github.com/wikimedia/eslint-config-wikimedia) which includes this plugin.__
+__If you are developing in MediaWiki you should be using [eslint-config-wikimedia](https://github.com/wikimedia/eslint-config-wikimedia), which includes this plugin.__
 
-Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, then enable the required rules.
+Note: ESLint supports two configuration methods: the new flat file configuration (`eslint.config.js`) introduced in ESLint 8.x and required from ESLint 9.x, and the traditional `.eslintrc.json` configuration files. During the migration, we provide examples for both methods. Choose the one that fits your project's setup.
+
+Add `mediawiki` to the plugins section of your `eslint.config.js` configuration file, then enable the required rules.
+
+```js
+const pluginMediaWiki = require('eslint-plugin-mediawiki');
+
+module.exports = [
+  {
+    "plugins": {
+      "mediawiki": pluginMediaWiki
+    },
+    "rules": {
+      "mediawiki/msg-doc": "error"
+    }
+  }
+];
+```
+
+Alternative, if you are using ESLint 8.x-style `.eslintrc` configuration files, do this:
 
 ```json
 {
@@ -18,7 +37,32 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 }
 ```
 
-There are two shared configs: `vue` which contains all Vue-related rules, and `common` which includes all other rules.
+There are two shared configs: `vue`, which contains all Vue-related rules, and `common`, which includes all other rules.
+
+```js
+const pluginMediaWiki = require('eslint-plugin-mediawiki');
+
+const configMediaWikiCommon = require('eslint-plugin-mediawiki/common');
+const configMediaWikiVue = require('eslint-plugin-mediawiki/vue');
+
+module.exports = [
+  configMediaWikiCommon,
+  {
+    "plugins": {
+      "mediawiki": pluginMediaWiki
+    },
+    "rules": {
+      "mediawiki/msg-doc": "error"
+    },
+    "overrides": [
+      configMediaWikiVue,
+      {
+        "files": [ "**/*.vue" ],
+      }
+    ]
+  }
+];
+```
 
 ```json
 {
