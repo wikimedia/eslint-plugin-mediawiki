@@ -18,7 +18,7 @@
 		"test": "nyc mocha --reporter dot tests/ tests/rules/ && git diff --exit-code docs/",
 		"report": "nyc report --reporter=text-lcov > coverage.lcov",
 		"reporthtml": "nyc report --reporter=html",
-		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/**",
+		"doc": "del-cli docs/rules/* && mocha --reporter dot tests/rules/**",
 		"build": "npm run doc"
 	},
 	"engine": {
@@ -28,19 +28,17 @@
 		"src"
 	],
 	"dependencies": {
-		"eslint-plugin-vue": "^9.23.0",
+		"eslint-plugin-vue": "^10.1.0",
 		"upath": "^2.0.1"
 	},
 	"peerDependencies": {
-		"eslint": ">=5.0.0"
+		"eslint": ">=9.0.0"
 	},
 	"devDependencies": {
 		"codecov": "^3.8.3",
 		"cross-env": "^7.0.3",
 		"del-cli": "^4.0.1",
-		"eslint-config-wikimedia": "^0.26.0",
-		"eslint-docgen": "^0.7.1",
-		"eslint-plugin-eslint-plugin": "^4.1.0",
+		"eslint-plugin-eslint-plugin": "^6.4.0",
 		"eslint-plugin-json-es": "^1.5.7",
 		"mocha": "^10.3.0",
 		"nyc": "^15.1.0",

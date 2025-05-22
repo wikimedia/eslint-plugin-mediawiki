@@ -7,7 +7,7 @@ function dotSlashPrefixIfMissing( fileName ) {
 }
 
 function getFullRelativeFilePath( name, context ) {
-	const contextDirPath = path.dirname( context.getFilename() );
+	const contextDirPath = path.dirname( context.filename );
 	const absolutePath = require.resolve(
 		// `require( 'foo.js' )` will be resolved in older node version, whereas for newer ones
 		// it should always be `require( './foo.js' )` for files in the same directory.
