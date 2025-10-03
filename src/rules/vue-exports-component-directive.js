@@ -12,7 +12,8 @@ module.exports = {
 	meta: {
 		type: 'suggestion',
 		docs: {
-			description: 'Require `defineComponent()` calls or `// @vue/component` directives to trigger eslint-plugin-vue rules'
+			description: 'Require `defineComponent()` calls or `// @vue/component` directives to trigger eslint-plugin-vue rules',
+			recommended: true
 		},
 		fixable: 'code',
 		schema: [],
@@ -100,8 +101,7 @@ module.exports = {
 								// const { ... } = require( 'vue' );
 								// eslint-disable-next-line es-x/no-array-prototype-flat
 								const varDefs = scope.variables.flatMap( ( v ) => v.defs );
-								const existingVar = varDefs.find( ( d ) =>
-									d.node.type === 'VariableDeclarator' &&
+								const existingVar = varDefs.find( ( d ) => d.node.type === 'VariableDeclarator' &&
 									d.node.id.type === 'ObjectPattern' &&
 									d.node.init.type === 'CallExpression' &&
 									d.node.init.callee.type === 'Identifier' &&

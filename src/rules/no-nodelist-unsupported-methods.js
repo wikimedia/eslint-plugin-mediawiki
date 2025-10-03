@@ -7,7 +7,8 @@ module.exports = {
 		type: 'problem',
 		docs: {
 			// Full browser support table: https://developer.mozilla.org/en-US/docs/Web/API/NodeList#browser_compatibility
-			description: 'Prohibits [NodeList methods](https://developer.mozilla.org/en-US/docs/Web/API/NodeList#browser_compatibility) not supported by Chrome<51, Firefox<50, Safari<10, IE & others'
+			description: 'Prohibits [NodeList methods](https://developer.mozilla.org/en-US/docs/Web/API/NodeList#browser_compatibility) not supported by Chrome<51, Firefox<50, Safari<10, IE & others',
+			recommended: true
 		},
 		schema: [],
 		messages: {

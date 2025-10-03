@@ -6,7 +6,8 @@ module.exports = {
 	meta: {
 		type: 'suggestion',
 		docs: {
-			description: 'Prohibits dynamic i18n message keys in Vue templates'
+			description: 'Prohibits dynamic i18n message keys in Vue templates',
+			recommended: true
 		},
 		schema: [],
 		messages: {

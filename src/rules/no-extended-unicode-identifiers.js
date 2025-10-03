@@ -4,7 +4,8 @@ module.exports = {
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Prohibits non-BMP characters in identifiers, for Safari 11-13 compatibility.'
+			description: 'Prohibits non-BMP characters in identifiers, for Safari 11-13 compatibility.',
+			recommended: true
 		},
 		schema: [],
 		messages: {

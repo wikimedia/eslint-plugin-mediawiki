@@ -4,7 +4,7 @@ function countListItems( sourceCode, node, countedLines, onlyBefore ) {
 	const comments = ( onlyBefore ? [] : sourceCode.getCommentsInside( node ) )
 		.concat( sourceCode.getCommentsBefore( node ) );
 	return comments.reduce(
-		function ( acc, line ) {
+		( acc, line ) => {
 			if ( line.type === 'Block' ) {
 				return acc;
 			}
