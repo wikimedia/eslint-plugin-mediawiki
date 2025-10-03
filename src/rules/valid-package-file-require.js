@@ -29,7 +29,8 @@ module.exports = {
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).'
+			description: 'Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).',
+			recommended: true
 		},
 		fixable: 'code',
 		schema: [],
@@ -38,47 +39,45 @@ module.exports = {
 		}
 	},
 
-	create: function ( context ) {
-		return {
-			CallExpression: ( node ) => {
-				if (
-					node.callee.type !== 'Identifier' ||
+	create: ( context ) => ( {
+		CallExpression: ( node ) => {
+			if (
+				node.callee.type !== 'Identifier' ||
 					node.callee.name !== 'require' ||
 					!node.arguments.length ||
 					node.arguments[ 0 ].type !== 'Literal'
-				) {
-					return;
-				}
-
-				const requiredFileOrModule = node.arguments[ 0 ].value;
-				// Check if the argument starts with ./ or ../, or ends with .js, .json, or .vue
-				if ( !requiredFileOrModule.match( /(^\.\.?\/)|(\.(js|json|vue)$)/ ) ) {
-					// If not, it's probably a ResourceLoader module; ignore
-					return;
-				}
-
-				let fullRelativeFilePath;
-				try {
-					fullRelativeFilePath = getFullRelativeFilePath( requiredFileOrModule, context );
-				} catch ( e ) {
-					// File doesn't exist, probably a virtual file in a packageFiles module; ignore
-					return;
-				}
-
-				if (
-					!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
-				) {
-					context.report( {
-						node,
-						messageId: 'badFilePath',
-						data: { fullRelativeFilePath },
-						fix( fixer ) {
-							const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
-							return fixer.replaceText( node.arguments[ 0 ], `'${ escapedNewPath }'` );
-						}
-					} );
-				}
+			) {
+				return;
 			}
-		};
-	}
+
+			const requiredFileOrModule = node.arguments[ 0 ].value;
+			// Check if the argument starts with ./ or ../, or ends with .js, .json, or .vue
+			if ( !requiredFileOrModule.match( /(^\.\.?\/)|(\.(js|json|vue)$)/ ) ) {
+				// If not, it's probably a ResourceLoader module; ignore
+				return;
+			}
+
+			let fullRelativeFilePath;
+			try {
+				fullRelativeFilePath = getFullRelativeFilePath( requiredFileOrModule, context );
+			} catch ( e ) {
+				// File doesn't exist, probably a virtual file in a packageFiles module; ignore
+				return;
+			}
+
+			if (
+				!isValidPackageFileRequireForPath( requiredFileOrModule, fullRelativeFilePath )
+			) {
+				context.report( {
+					node,
+					messageId: 'badFilePath',
+					data: { fullRelativeFilePath },
+					fix( fixer ) {
+						const escapedNewPath = fullRelativeFilePath.replace( /'/g, '\\\'' );
+						return fixer.replaceText( node.arguments[ 0 ], `'${ escapedNewPath }'` );
+					}
+				} );
+			}
+		}
+	} )
 };

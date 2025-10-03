@@ -11,39 +11,37 @@ module.exports = {
 	meta: {
 		type: 'suggestion',
 		docs: {
-			description: 'Ensures message keys are documented when they are constructed.'
+			description: 'Ensures message keys are documented when they are constructed.',
+			recommended: true
 		},
 		schema: []
 	},
 
-	create: function ( context ) {
-
-		return {
-			'CallExpression[callee.type="MemberExpression"]': function ( node ) {
-				if (
-					methodNames.includes( node.callee.property.name ) &&
+	create: ( context ) => ( {
+		'CallExpression[callee.type="MemberExpression"]': function ( node ) {
+			if (
+				methodNames.includes( node.callee.property.name ) &&
 					node.arguments.length &&
 					utils.requiresCommentList( context, node.arguments[ 0 ] )
-				) {
-					context.report( {
-						node: node,
-						message: message
-					} );
-				}
-			},
-			'NewExpression[callee.type="MemberExpression"]': function ( node ) {
-				if (
-					node.callee.object.name === 'mw' &&
+			) {
+				context.report( {
+					node: node,
+					message: message
+				} );
+			}
+		},
+		'NewExpression[callee.type="MemberExpression"]': function ( node ) {
+			if (
+				node.callee.object.name === 'mw' &&
 					node.callee.property.name === 'Message' &&
 					utils.requiresCommentList( context, node.arguments[ 0 ] )
-				) {
-					context.report( {
-						node: node,
-						message: message
-					} );
-				}
-
+			) {
+				context.report( {
+					node: node,
+					message: message
+				} );
 			}
-		};
-	}
+
+		}
+	} )
 };

@@ -159,10 +159,8 @@ ruleTester.run( 'msg-doc', rule, {
 			second = mw.msg( 'bar-' + baz );
 		}`
 
-	].map( function ( code ) {
-		return {
-			code: code,
-			errors: [ error ]
-		};
-	} )
+	].map( ( code ) => ( {
+		code: code,
+		errors: [ error ]
+	} ) )
 } );

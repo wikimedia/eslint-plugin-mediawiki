@@ -19,7 +19,7 @@ document.querySelectorAll( '.foo' ).forEach();
 
 ✔️ Examples of **correct** code:
 ```js
-Array.prototype.forEach.call( element.childNodes, function ( element ) {} );
+Array.prototype.forEach.call( element.childNodes, ( element ) => {} );
 [].forEach();
 [].property.forEach();
 [].method().forEach();

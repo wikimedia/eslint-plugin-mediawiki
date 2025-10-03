@@ -22,54 +22,53 @@ module.exports = {
 	meta: {
 		type: 'suggestion',
 		docs: {
-			description: 'Ensures CSS classes are documented when they are constructed.'
+			description: 'Ensures CSS classes are documented when they are constructed.',
+			recommended: true
 		},
 		schema: []
 	},
 
-	create: function ( context ) {
+	create: ( context ) => ( {
+		ObjectExpression: ( node ) => {
+			const classesProp = node.properties.find(
+				( prop ) => prop.type === 'Property' && isPropName( prop.key, 'classes' )
+			);
+			if ( !classesProp ) {
+				return;
+			}
 
-		return {
-			ObjectExpression: function ( node ) {
-				const classesProp = node.properties.find(
-					( prop ) => prop.type === 'Property' && isPropName( prop.key, 'classes' )
-				);
-				if ( !classesProp ) {
-					return;
-				}
+			if ( utils.requiresCommentList( context, classesProp.value ) ) {
+				context.report( {
+					node: node,
+					message: message
+				} );
+			}
+		},
 
-				if ( utils.requiresCommentList( context, classesProp.value ) ) {
-					context.report( {
-						node: node,
-						message: message
-					} );
-				}
-			},
-
-			AssignmentExpression: function ( node ) {
-				if (
-					node.left.type === 'MemberExpression' &&
+		AssignmentExpression: ( node ) => {
+			if (
+				node.left.type === 'MemberExpression' &&
 					isPropName( node.left.property, 'className' ) &&
 					utils.requiresCommentList( context, node.right )
-				) {
-					context.report( {
-						node: node,
-						message: message
-					} );
-				}
-			},
+			) {
+				context.report( {
+					node: node,
+					message: message
+				} );
+			}
+		},
 
-			CallExpression: function ( node ) {
-				if ( node.callee.type !== 'MemberExpression' ) {
-					return;
-				}
+		CallExpression: ( node ) => {
+			if ( node.callee.type !== 'MemberExpression' ) {
+				return;
+			}
 
-				if (
-					!(
-						jQueryMethodNames.includes( node.callee.property.name ) &&
+			if (
+				!(
+					jQueryMethodNames.includes( node.callee.property.name ) &&
 						node.arguments.length &&
 						utils.requiresCommentList( context, node.arguments[ 0 ] )
-					) &&
+				) &&
 					!(
 						domMethodNames.includes( node.callee.property.name ) &&
 						node.callee.object.property &&
@@ -89,15 +88,14 @@ module.exports = {
 							)
 						)
 					)
-				) {
-					return;
-				}
-
-				context.report( {
-					node: node,
-					message: message
-				} );
+			) {
+				return;
 			}
-		};
-	}
+
+			context.report( {
+				node: node,
+				message: message
+			} );
+		}
+	} )
 };
