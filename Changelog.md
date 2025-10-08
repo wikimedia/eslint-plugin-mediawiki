@@ -1,5 +1,9 @@
 # eslint-plugin-mediawiki release history
 
+## v0.7.1
+* New rule: `no-unlabeled-buttonwidget` (Ed Sanders)
+* Rule fix: `class-doc`: Encourage in example usage that users specify it's for CSS classes (James D. Forrester)
+
 ## v0.7.0
 * [BREAKING CHANGE] Drop claimed Node 16 support (James D. Forrester)
 * Rule fix: `vue-exports-component-directive`: Prefer `defineComponent()` (Roan Kattouw)
