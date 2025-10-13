@@ -17,6 +17,7 @@ module.exports = {
 		return {
 			NewExpression( node ) {
 				if (
+					node.callee.property &&
 					node.callee.property.type === 'Identifier' &&
 					node.callee.property.name === 'ButtonWidget' &&
 					node.arguments.length >= 1 &&
