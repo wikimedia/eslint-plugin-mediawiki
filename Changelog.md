@@ -1,5 +1,9 @@
 # eslint-plugin-mediawiki release history
 
+## v0.8.0
+* [BREAKING CHANGE] Drop support for Node 18 (Ed Sanders)
+* Rule fix: `no-unlabeled-buttonwidget`: Handle `node.callee` with no `property` (Ed Sanders)
+
 ## v0.7.1
 * New rule: `no-unlabeled-buttonwidget` (Ed Sanders)
 * Rule fix: `class-doc`: Encourage in example usage that users specify it's for CSS classes (James D. Forrester)
