@@ -14,6 +14,10 @@ ruleTester.run( 'no-unlabeled-buttonwidget', rule, {
 			code: 'widget = new OO.ui.ButtonWidget( { "label": "Label (literal key)" } );',
 			docgen: false
 		},
+		{
+			code: 'widget = new ButtonWidget( { icon: "edit" } );',
+			docgen: false
+		},
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", label: "Label" } );',
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", invisibleLabel: true, label: "Label" } );',
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", invisibleLabel: false, label: "Label" } );',
