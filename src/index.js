@@ -8,6 +8,7 @@ module.exports = {
 		'no-nodelist-unsupported-methods': require( './rules/no-nodelist-unsupported-methods' ),
 		'no-unlabeled-buttonwidget': require( './rules/no-unlabeled-buttonwidget.js' ),
 		'no-vue-dynamic-i18n': require( './rules/no-vue-dynamic-i18n.js' ),
+		'storage-expiry': require( './rules/storage-expiry.js' ),
 		'valid-package-file-require': require( './rules/valid-package-file-require.js' ),
 		'vue-exports-component-directive': require( './rules/vue-exports-component-directive.js' )
 	},
@@ -19,6 +20,7 @@ module.exports = {
 				'mediawiki/no-extended-unicode-identifiers': 'error',
 				'mediawiki/no-nodelist-unsupported-methods': 'error',
 				'mediawiki/no-unlabeled-buttonwidget': 'error',
+				'mediawiki/storage-expiry': 'warn',
 				'mediawiki/valid-package-file-require': 'error'
 			}
 		},
