@@ -1,16 +1,28 @@
 'use strict';
 
+const names = [
+	'ButtonWidget',
+	// Sub-classes of ButtonWidget
+	'ActionWidget',
+	'ButtonMenuSelectWidget',
+	'PopupButtonWidget',
+	// Mixin ButtonElement and behave like buttons
+	'ButtonInputWidget',
+	'ButtonOptionWidget',
+	'ToggleButtonWidget'
+];
+
 module.exports = {
 	meta: {
 		type: 'problem',
 		docs: {
-			description: 'Warn when a label-less OO.ui.ButtonWidget is created without a label or invisible label.',
+			description: 'Warn when a label-less OOUI button is created without a label or invisible label.',
 			category: 'Accessibility',
 			recommended: true
 		},
 		schema: [],
 		messages: {
-			noLabel: 'OO.ui.ButtonWidget has no label. Even icon-only buttons should set a label with invisibleLabel set to true.'
+			noLabel: 'OOUI button has no label. Even icon-only buttons should set a label with invisibleLabel set to true.'
 		}
 	},
 	create( context ) {
@@ -19,7 +31,7 @@ module.exports = {
 				if (
 					node.callee.property &&
 					node.callee.property.type === 'Identifier' &&
-					node.callee.property.name === 'ButtonWidget' &&
+					names.includes( node.callee.property.name ) &&
 					node.arguments.length >= 1 &&
 					node.arguments[ 0 ].type === 'ObjectExpression'
 				) {
