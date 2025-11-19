@@ -17,13 +17,13 @@ module.exports = {
 	configs: {
 		common: {
 			rules: {
-				'mediawiki/class-doc': 'error',
-				'mediawiki/msg-doc': 'error',
-				'mediawiki/no-cookie': 'error',
+				'mediawiki/class-doc': 'warn',
+				'mediawiki/msg-doc': 'warn',
+				'mediawiki/no-cookie': 'warn',
 				'mediawiki/no-extended-unicode-identifiers': 'error',
 				'mediawiki/no-nodelist-unsupported-methods': 'error',
-				'mediawiki/no-storage': 'error',
-				'mediawiki/no-unlabeled-buttonwidget': 'error',
+				'mediawiki/no-storage': 'warn',
+				'mediawiki/no-unlabeled-buttonwidget': 'warn',
 				'mediawiki/storage-expiry': 'warn',
 				'mediawiki/valid-package-file-require': 'error'
 			}
