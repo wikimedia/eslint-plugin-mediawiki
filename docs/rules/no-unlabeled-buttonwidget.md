@@ -2,7 +2,7 @@
 
 # no-unlabeled-buttonwidget
 
-Warn when a label-less OO.ui.ButtonWidget is created without a label or invisible label.
+Warn when a label-less OOUI button is created without a label or invisible label.
 
 📋 This rule is enabled in `plugin:mediawiki/common`.
 
@@ -11,6 +11,12 @@ Warn when a label-less OO.ui.ButtonWidget is created without a label or invisibl
 ❌ Examples of **incorrect** code:
 ```js
 widget = new OO.ui.ButtonWidget( { icon: 'edit' } );
+widget = new OO.ui.ActionWidget( { icon: 'edit' } );
+widget = new OO.ui.ButtonMenuSelectWidget( { icon: 'edit' } );
+widget = new OO.ui.PopupButtonWidget( { icon: 'edit' } );
+widget = new OO.ui.ButtonInputWidget( { icon: 'edit' } );
+widget = new OO.ui.ButtonOptionWidget( { icon: 'edit' } );
+widget = new OO.ui.ToggleButtonWidget( { icon: 'edit' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', label: '' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', title: 'Title' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', invisibleLabel: false } );
@@ -23,6 +29,12 @@ widget = new OO.ui.ButtonWidget( { icon: 'edit', ...label } );
 ```js
 widget = new OO.ui.IconWidget( { icon: 'edit' } );
 widget = new OO.ui.ButtonWidget( { label: 'Label' } );
+widget = new OO.ui.ActionWidget( { label: 'Label' } );
+widget = new OO.ui.ButtonMenuSelectWidget( { label: 'Label' } );
+widget = new OO.ui.PopupButtonWidget( { label: 'Label' } );
+widget = new OO.ui.ButtonInputWidget( { label: 'Label' } );
+widget = new OO.ui.ButtonOptionWidget( { label: 'Label' } );
+widget = new OO.ui.ToggleButtonWidget( { label: 'Label' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', label: 'Label' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', invisibleLabel: true, label: 'Label' } );
 widget = new OO.ui.ButtonWidget( { icon: 'edit', invisibleLabel: false, label: 'Label' } );

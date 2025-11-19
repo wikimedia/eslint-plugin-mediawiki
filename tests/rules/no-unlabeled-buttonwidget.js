@@ -3,13 +3,25 @@
 const rule = require( '../../src/rules/no-unlabeled-buttonwidget' );
 const RuleTester = require( 'eslint-docgen' ).RuleTester;
 
+const names = [
+	'ButtonWidget',
+	// Sub-classes of ButtonWidget
+	'ActionWidget',
+	'ButtonMenuSelectWidget',
+	'PopupButtonWidget',
+	// Mixin ButtonElement and behave like buttons
+	'ButtonInputWidget',
+	'ButtonOptionWidget',
+	'ToggleButtonWidget'
+];
+
 const ruleTester = new RuleTester( {
 	parserOptions: { ecmaVersion: 2019 }
 } );
 ruleTester.run( 'no-unlabeled-buttonwidget', rule, {
 	valid: [
 		'widget = new OO.ui.IconWidget( { icon: "edit" } );',
-		'widget = new OO.ui.ButtonWidget( { label: "Label" } );',
+		...names.map( ( name ) => `widget = new OO.ui.${ name }( { label: "Label" } );` ),
 		{
 			code: 'widget = new OO.ui.ButtonWidget( { "label": "Label (literal key)" } );',
 			docgen: false
@@ -26,7 +38,7 @@ ruleTester.run( 'no-unlabeled-buttonwidget', rule, {
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", label() {} } );'
 	],
 	invalid: [
-		'widget = new OO.ui.ButtonWidget( { icon: "edit" } );',
+		...names.map( ( name ) => ( `widget = new OO.ui.${ name }( { icon: "edit" } );` ) ),
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", label: "" } );',
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", title: "Title" } );',
 		'widget = new OO.ui.ButtonWidget( { icon: "edit", invisibleLabel: false } );',
