@@ -1,5 +1,9 @@
 # eslint-plugin-mediawiki release history
 
+## v0.8.2
+* Rule fix: `no-unlabeled-buttonwidget`: Detect other button classes (Ed Sanders)
+* Downgrade best practices to "warn" level by default (Ed Sanders)
+
 ## v0.8.1
 * New rule: `no-cookie` (Ed Sanders)
 * New rule: `no-storage` (Ed Sanders)
