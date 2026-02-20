@@ -18,7 +18,7 @@
 		"test": "nyc mocha --reporter dot tests/ tests/rules/ && git diff --exit-code docs/",
 		"report": "nyc report --reporter=text-lcov > coverage.lcov",
 		"reporthtml": "nyc report --reporter=html",
-		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/**",
+		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/** && node tools/build-readme.js",
 		"build": "npm run doc"
 	},
 	"engine": {
