@@ -11,6 +11,7 @@ module.exports = {
 		'no-unlabeled-buttonwidget': require( './rules/no-unlabeled-buttonwidget.js' ),
 		'no-vue-dynamic-i18n': require( './rules/no-vue-dynamic-i18n.js' ),
 		'storage-expiry': require( './rules/storage-expiry.js' ),
+		'title-case-file-name': require( './rules/title-case-file-name.js' ),
 		'valid-package-file-require': require( './rules/valid-package-file-require.js' ),
 		'vue-exports-component-directive': require( './rules/vue-exports-component-directive.js' )
 	},
