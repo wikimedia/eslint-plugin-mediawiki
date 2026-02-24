@@ -36,6 +36,11 @@ ruleTester.run( 'title-case-file-name', rule, {
 			filename: path.resolve( __dirname, '../sandbox/index.js' )
 		},
 		{
+			code: 'var indexTestFile = true;',
+			filename: path.resolve( __dirname, '../sandbox/index.test.js' ),
+			docgen: false
+		},
+		{
 			code: 'var eslintConfig = true;',
 			filename: path.resolve( __dirname, '../sandbox/.eslintrc.js' ),
 			docgen: false
