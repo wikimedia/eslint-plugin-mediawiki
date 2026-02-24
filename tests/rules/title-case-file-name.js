@@ -9,6 +9,9 @@ const ruleTester = new RuleTester( {
 } );
 
 ruleTester.run( 'title-case-file-name', rule, {
+	docgenConfig: {
+		showFilenames: true
+	},
 	valid: [
 		{
 			code: 'var fooBar = true;',
@@ -30,8 +33,7 @@ ruleTester.run( 'title-case-file-name', rule, {
 		},
 		{
 			code: 'var indexFile = true;',
-			filename: path.resolve( __dirname, '../sandbox/index.js' ),
-			docgen: false
+			filename: path.resolve( __dirname, '../sandbox/index.js' )
 		},
 		{
 			code: 'var eslintConfig = true;',
@@ -57,8 +59,7 @@ ruleTester.run( 'title-case-file-name', rule, {
 		{
 			code: 'var kebabCaseName = true;',
 			filename: path.resolve( __dirname, '../sandbox/foo-bar.js' ),
-			errors: [ { messageId: 'notTitleCase', data: { filename: 'foo-bar.js' } } ],
-			docgen: false
+			errors: [ { messageId: 'notTitleCase', data: { filename: 'foo-bar.js' } } ]
 		},
 		{
 			code: 'var snakeCaseName = true;',

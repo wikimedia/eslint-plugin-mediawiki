@@ -6,26 +6,44 @@ Require TitleCase file names for JavaScript and Vue files, with optional .test s
 
 ## Rule details
 
-❌ Examples of **incorrect** code:
-```js
-const lowerCamelCaseName = true;
-const lowerCaseDotTest = true;
-```
-
-✔️ Examples of **correct** code:
+✔️ Examples of **correct** code for a file named `FooBar.js`:
 ```js
 const fooBar = true;
+```
+
+✔️ Examples of **correct** code for a file named `FooBar.test.js`:
+```js
 const fooBarDotTest = true;
 ```
 
-❌ Examples of **incorrect** code:
-```vue
-const lowerCamelCaseVue = true;
+❌ Examples of **incorrect** code for a file named `foo-bar.js`:
+```js
+const kebabCaseName = true;
 ```
 
-✔️ Examples of **correct** code:
+❌ Examples of **incorrect** code for a file named `foo.test.js`:
+```js
+const lowerCaseDotTest = true;
+```
+
+❌ Examples of **incorrect** code for a file named `fooBar.js`:
+```js
+const lowerCamelCaseName = true;
+```
+
+✔️ Examples of **correct** code for a file named `index.js`:
+```js
+const indexFile = true;
+```
+
+✔️ Examples of **correct** code for a file named `FooBar.vue`:
 ```vue
 const fooBarVue = true;
+```
+
+❌ Examples of **incorrect** code for a file named `fooBar.vue`:
+```vue
+const lowerCamelCaseVue = true;
 ```
 
 ## Resources
