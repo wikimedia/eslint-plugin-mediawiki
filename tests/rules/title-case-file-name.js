@@ -14,6 +14,15 @@ ruleTester.run( 'title-case-file-name', rule, {
 	},
 	valid: [
 		{
+			code: 'var stdinInput = true;',
+			docgen: false
+		},
+		{
+			code: 'var textInput = true;',
+			filename: '<text>',
+			docgen: false
+		},
+		{
 			code: 'var fooBar = true;',
 			filename: path.resolve( __dirname, '../sandbox/FooBar.js' )
 		},
