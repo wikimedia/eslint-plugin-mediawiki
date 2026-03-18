@@ -31,7 +31,7 @@ jobs:
         CI: true
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v5
-      if: ${{ (github.event.pull_request.head.repo.full_name == github.repository) }}
+      if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./coverage.lcov
