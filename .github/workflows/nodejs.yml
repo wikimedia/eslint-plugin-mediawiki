@@ -16,9 +16,9 @@ jobs:
     - name: Turn off autocrlf for Windows testing
       run: |
         git config --global core.autocrlf false
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v6
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
@@ -30,10 +30,10 @@ jobs:
       env:
         CI: true
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.lcov
-        flgas: unittests
+        files: ./coverage.lcov
+        flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
