@@ -2,6 +2,8 @@
 
 let vueUtils;
 try {
+	
+	// eslint-disable-next-line
 	vueUtils = require( 'eslint-plugin-vue/dist/utils' );
 } catch {
 	vueUtils = require( 'eslint-plugin-vue/lib/utils' );
