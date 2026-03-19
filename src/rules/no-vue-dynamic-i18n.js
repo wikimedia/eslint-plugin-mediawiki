@@ -2,9 +2,12 @@
 
 let vueUtils;
 try {
+	// require path for eslint-plugin-vue >=10.7.0
+	// See https://github.com/vuejs/eslint-plugin-vue/issues/3005
 	// eslint-disable-next-line
 	vueUtils = require( 'eslint-plugin-vue/dist/utils' );
 } catch {
+	// Legacy fallback for eslint-plugin-vue <=10.6.0
 	vueUtils = require( 'eslint-plugin-vue/lib/utils' );
 }
 
