@@ -93,7 +93,8 @@ module.exports = {
 							yield fixer.insertTextAfter( assignedValue, ' )' );
 
 							// Check whether the defineComponent variable is already defined
-							const scope = ( context.sourceCode ?? context.getSourceCode() ).getScope( assignedValue );
+							const scope = ( context.sourceCode ?? context.getSourceCode() )
+								.getScope( assignedValue );
 							if ( !scope.variables.some( ( v ) => v.name === 'defineComponent' ) ) {
 								// defineComponent is not defined
 
