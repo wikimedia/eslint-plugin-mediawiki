@@ -1,6 +1,11 @@
 'use strict';
 
-const vueUtils = require( 'eslint-plugin-vue/lib/utils' );
+let vueUtils;
+try {
+	vueUtils = require( 'eslint-plugin-vue/dist/utils' );
+} catch {
+	vueUtils = require( 'eslint-plugin-vue/lib/utils' );
+}
 
 module.exports = {
 	meta: {
