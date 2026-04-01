@@ -71,6 +71,11 @@ ruleTester.run( 'msg-doc', rule, {
 
 		'message = mw.msg(test ? "foo" : "bar")',
 
+		// Expressions are assumed safe unless they use string concatenation
+		'message = mw.msg( key )',
+		'message = mw.msg( config.key )',
+		'message = new mw.Message( key )',
+
 		'message = mw.msg(test ? (test2 ? "foo" : "bar") : (test2 ? "baz" : "quux"))',
 
 		'message = mw.msg("foo-bar")',
@@ -85,6 +90,8 @@ ruleTester.run( 'msg-doc', rule, {
 	],
 	invalid: [
 		'message = mw.msg( "foo-" + bar )',
+		'message = mw.msg( bar + baz )',
+		'message = mw.msg( key += suffix )',
 
 		'message = mw.msg( cond ? "baz" : "foo-" + bar )',
 		'message = new mw.Message( cond ? "baz" : "foo-" + bar )',

@@ -34,6 +34,7 @@ ruleTester.run( 'class-doc', rule, {
 			.text($el.addClass("foo-" + bar))`,
 
 		'$el.addClass(test ? "foo" : "bar")',
+		'$el.addClass( className )',
 		'$el.addClass("foo-bar")',
 		'$el.removeClass("foo-bar")',
 		'$el.toggleClass("foo-bar")',
@@ -41,6 +42,7 @@ ruleTester.run( 'class-doc', rule, {
 
 		// Undocumented feature of jQuery methods:
 		'$el.addClass(["foo", "bar"])',
+		'$el.addClass(["foo", bar])',
 		{
 			code: '$el.addClass()',
 			docgen: false
@@ -48,6 +50,7 @@ ruleTester.run( 'class-doc', rule, {
 
 		// == DOM:className ==
 		'element.className = "foo"',
+		'element.className = someClass',
 		{
 			code: 'element["className"] = "foo"',
 			docgen: false
@@ -70,6 +73,7 @@ ruleTester.run( 'class-doc', rule, {
 
 		// == OOUI ==
 		'new OO.ui.ButtonWidget( { classes: ["foo"] } )',
+		'new OO.ui.ButtonWidget( { classes: dynamicClasses } )',
 
 		{
 			code: 'new OO.ui.ButtonWidget( { "classes": ["foo"] } )',
@@ -105,7 +109,7 @@ ruleTester.run( 'class-doc', rule, {
 		[
 			// == jQuery ==
 			'$el.addClass( "foo-" + bar )',
-			'$el.addClass( ["foo", bar] )',
+			'$el.addClass( bar + baz )',
 
 			// Not enough classes
 			outdent`
