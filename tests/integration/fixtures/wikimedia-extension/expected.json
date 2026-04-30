@@ -1,0 +1,5 @@
+{
+	"src/dialog.js": [
+		{ "ruleId": "mediawiki/class-doc", "severity": 1, "line": 7 }
+	]
+}

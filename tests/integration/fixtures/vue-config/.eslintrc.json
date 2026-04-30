@@ -1,0 +1,6 @@
+{
+	"root": true,
+	"extends": [ "plugin:mediawiki/vue" ],
+	"parser": "vue-eslint-parser",
+	"parserOptions": { "ecmaVersion": 2019, "sourceType": "module" }
+}

@@ -1,0 +1,5 @@
+{
+	"root": true,
+	"extends": [ "plugin:mediawiki/common" ],
+	"parserOptions": { "ecmaVersion": 2019, "sourceType": "script" }
+}
