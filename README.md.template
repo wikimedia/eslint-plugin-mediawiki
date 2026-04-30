@@ -18,13 +18,10 @@ Add `mediawiki` to the plugins section of your `.eslintrc` configuration file, t
 }
 ```
 
-There are two shared configs: `vue` which contains all Vue-related rules, and `common` which includes all other rules.
+There are two shared configs: `vue` which contains all Vue-related rules, and `common` which includes all other rules. They self-declare the `mediawiki` plugin, so extending them is sufficient on its own.
 
 ```json
 {
-  "plugins": [
-    "mediawiki"
-  ],
   "extends": [
     "plugin:mediawiki/common"
   ],
