@@ -1,5 +1,10 @@
 # eslint-plugin-mediawiki release history
 
+## v0.8.3
+* Rule fix: `class-doc`/`msg-doc`: Allow simple expressions (#129) (Ed Sanders)
+* ci: bump actions (ElectricalBoy)
+* Populate rules list in README by script (Ed Sanders)
+
 ## v0.8.2
 * Rule fix: `no-unlabeled-buttonwidget`: Detect other button classes (Ed Sanders)
 * Downgrade best practices to "warn" level by default (Ed Sanders)
