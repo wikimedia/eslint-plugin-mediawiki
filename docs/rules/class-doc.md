@@ -11,7 +11,7 @@ Ensures CSS classes are documented when they are constructed.
 ❌ Examples of **incorrect** code:
 ```js
 $el.addClass( 'foo-' + bar );
-$el.addClass( [ 'foo', bar ] );
+$el.addClass( bar + baz );
 
 // This can produce:
 // * foo-bar-baz
@@ -58,12 +58,15 @@ $foo
     .text( $el.addClass( 'foo-' + bar ) );
 
 $el.addClass( test ? 'foo' : 'bar' );
+$el.addClass( className );
 $el.addClass( 'foo-bar' );
 $el.removeClass( 'foo-bar' );
 $el.toggleClass( 'foo-bar' );
 $el.toggleClass( 'foo-bar', foo || bar );
 $el.addClass( [ 'foo', 'bar' ] );
+$el.addClass( [ 'foo', bar ] );
 element.className = 'foo';
+element.className = someClass;
 element.className = cond ? 'foo' : 'bar';
 element.classList.add( 'foo', 'bar' );
 element.classList.remove( 'foo', 'bar' );
@@ -74,6 +77,7 @@ object.property.add( 'foo' + bar );
 foo( 'bar' ).add( 'foo' + bar );
 add( 'foo' + bar );
 new OO.ui.ButtonWidget( { classes: [ 'foo' ] } );
+new OO.ui.ButtonWidget( { classes: dynamicClasses } );
 new OO.ui.ButtonWidget( { classes: [ 'foo', enabled ? 'enabled' : 'disabled' ] } );
 new OO.ui.ButtonWidget( { classes: enabled ? [ 'foo', 'bar' ] : [ 'baz', 'quux' ] } );
 new OO.ui.ButtonWidget( { classes: enabled ? ( framed ? 'ef' : 'eu' ) : ( framed ? 'df' : 'du' ) } );
