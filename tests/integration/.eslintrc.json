@@ -1,0 +1,9 @@
+{
+	"rules": {
+		"es-x/no-async-functions": "off",
+		"mocha/no-setup-in-describe": "off",
+		"security/detect-non-literal-fs-filename": "off",
+		"security/detect-non-literal-regexp": "off",
+		"security/detect-non-literal-require": "off"
+	}
+}

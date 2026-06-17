@@ -15,7 +15,7 @@
 	"main": "src/index.js",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "nyc mocha --reporter dot tests/ tests/rules/ && git diff --exit-code docs/",
+		"test": "nyc mocha --reporter dot tests/ tests/rules/ && mocha --reporter dot tests/integration/ && git diff --exit-code docs/",
 		"report": "nyc report --reporter=text-lcov > coverage.lcov",
 		"reporthtml": "nyc report --reporter=html",
 		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/** && node tools/build-readme.js",
@@ -43,7 +43,8 @@
 		"eslint-plugin-json-es": "^1.6.0",
 		"mocha": "^11.7.4",
 		"nyc": "^17.1.0",
-		"outdent": "^0.8.0"
+		"outdent": "^0.8.0",
+		"vue-eslint-parser": "^9.4.3"
 	},
 	"bugs": {
 		"url": "https://github.com/wikimedia/eslint-plugin-mediawiki/issues"

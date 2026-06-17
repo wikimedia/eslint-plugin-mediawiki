@@ -1,0 +1,14 @@
+{
+	"src/clean.js": [],
+	"src/cookies.js": [
+		{ "ruleId": "mediawiki/no-cookie", "severity": 1, "line": 3 }
+	],
+	"src/dialog.js": [
+		{ "ruleId": "mediawiki/class-doc", "severity": 1, "line": 4 },
+		{ "ruleId": "mediawiki/no-unlabeled-buttonwidget", "severity": 1, "line": 5 }
+	],
+	"src/storage.js": [
+		{ "ruleId": "mediawiki/no-storage", "severity": 1, "line": 4 },
+		{ "ruleId": "mediawiki/storage-expiry", "severity": 1, "line": 5 }
+	]
+}

@@ -1,0 +1,7 @@
+{
+	"src/index.js": [
+		{ "ruleId": "mediawiki/valid-package-file-require", "severity": 2, "line": 3 }
+	],
+	"src/nested/foo.js": [],
+	"src/util.js": []
+}

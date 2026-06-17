@@ -1,0 +1,8 @@
+{
+	"src/DynamicI18n.vue": [
+		{ "ruleId": "mediawiki/no-vue-dynamic-i18n", "severity": 2, "line": 2 }
+	],
+	"src/UnwrappedExports.vue": [
+		{ "ruleId": "mediawiki/vue-exports-component-directive", "severity": 2, "line": 6 }
+	]
+}

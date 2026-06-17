@@ -16,6 +16,7 @@ module.exports = {
 	},
 	configs: {
 		common: {
+			plugins: [ 'mediawiki' ],
 			rules: {
 				'mediawiki/class-doc': 'warn',
 				'mediawiki/msg-doc': 'warn',
@@ -29,6 +30,7 @@ module.exports = {
 			}
 		},
 		vue: {
+			plugins: [ 'mediawiki' ],
 			rules: {
 				'mediawiki/no-vue-dynamic-i18n': 'error',
 				'mediawiki/vue-exports-component-directive': 'error'
