@@ -76,7 +76,7 @@ function requiresCommentList( context, node ) {
 		return false;
 	}
 
-	const sourceCode = context.getSourceCode();
+	const sourceCode = ( context.sourceCode ?? context.getSourceCode() );
 	// Don't modify `node` so the correct error source is highlighted
 	let checkNode = node,
 		prevNode = node,
