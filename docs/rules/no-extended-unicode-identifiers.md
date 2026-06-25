@@ -4,7 +4,7 @@
 
 Prohibits non-BMP characters in identifiers, for Safari 11-13 compatibility.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as an error in `plugin:mediawiki/common`.
 
 ## Rule details
 

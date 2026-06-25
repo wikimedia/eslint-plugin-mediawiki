@@ -4,7 +4,7 @@
 
 Require `defineComponent()` calls or `// @vue/component` directives to trigger eslint-plugin-vue rules
 
-📋 This rule is enabled in `plugin:mediawiki/vue`.
+📋 This rule is enabled as an error in `plugin:mediawiki/vue`.
 
 🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
