@@ -26,14 +26,5 @@ jobs:
         npm ci
         npm run build --if-present
         npm test
-        npm run report
       env:
         CI: true
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v5
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage.lcov
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: true

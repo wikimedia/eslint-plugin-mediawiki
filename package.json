@@ -16,7 +16,6 @@
 	"scripts": {
 		"pretest": "eslint .",
 		"test": "c8 mocha --reporter dot tests/ tests/rules/ && mocha --reporter dot tests/integration/ && git diff --exit-code docs/",
-		"report": "c8 report --reporter=text-lcov > coverage.lcov",
 		"reporthtml": "c8 report --reporter=html",
 		"doc": "del-cli docs/rules/* && cross-env DOCGEN=1 mocha --reporter dot tests/rules/** && node tools/build-readme.js",
 		"build": "npm run doc"
@@ -35,7 +34,6 @@
 	},
 	"devDependencies": {
 		"c8": "12.0.0",
-		"codecov": "^3.8.3",
 		"cross-env": "^10.1.0",
 		"del-cli": "^7.0.0",
 		"eslint-config-wikimedia": "^0.32.5",
