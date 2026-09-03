@@ -48,6 +48,7 @@ There are two shared configs: `vue` which contains all Vue-related rules, and `c
 * [`mediawiki/no-unlabeled-buttonwidget`](docs/rules/no-unlabeled-buttonwidget.md) `common`
 * [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md) `vue`
 * [`mediawiki/storage-expiry`](docs/rules/storage-expiry.md) `common`
+* [`mediawiki/title-case-file-name`](docs/rules/title-case-file-name.md)
 * [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md) 🔧 `common`
 * [`mediawiki/vue-exports-component-directive`](docs/rules/vue-exports-component-directive.md) 🔧 `vue`
 
