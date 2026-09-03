@@ -69,6 +69,15 @@ ruleTester.run( 'msg-doc', rule, {
 		new mw.Message( 'foo-' + baz)
 		`,
 
+		{
+			code: outdent`
+			function getMessages( items ) {
+				return items.map( ( item ) => mw.message( 'foo-' + item + '-bar' ).text() );
+			}`,
+			parserOptions: { ecmaVersion: 2019 },
+			docgen: false
+		},
+
 		'message = mw.msg(test ? "foo" : "bar")',
 
 		// Expressions are assumed safe unless they use string concatenation

@@ -33,6 +33,14 @@ ruleTester.run( 'class-doc', rule, {
 			// * foo-quux
 			.text($el.addClass("foo-" + bar))`,
 
+		{
+			code: outdent`
+			function addClass( name ) {
+				return $el.addClass( "foo-" + name );
+			}`,
+			docgen: false
+		},
+
 		'$el.addClass(test ? "foo" : "bar")',
 		'$el.addClass( className )',
 		'$el.addClass("foo-bar")',
