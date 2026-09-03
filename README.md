@@ -1,4 +1,4 @@
-<!-- This file is built by build-readme.js. Do not edit it directly; edit README.md.template instead. -->
+<!-- This file is built by eslint-docgen-build-readme. Do not edit it directly; edit README.md.template instead. -->
 # eslint-plugin-mediawiki
 MediaWiki-specific linting rules, for use in MediaWiki core and extensions.
 
@@ -42,14 +42,14 @@ There are two shared configs: `vue` which contains all Vue-related rules, and `c
 * [`mediawiki/class-doc`](docs/rules/class-doc.md) `common`
 * [`mediawiki/msg-doc`](docs/rules/msg-doc.md) `common`
 * [`mediawiki/no-cookie`](docs/rules/no-cookie.md) `common`
-* [`mediawiki/no-extended-unicode-identifiers`](docs/rules/no-extended-unicode-identifiers.md) `common`
-* [`mediawiki/no-nodelist-unsupported-methods`](docs/rules/no-nodelist-unsupported-methods.md) `common`
+* [`mediawiki/no-extended-unicode-identifiers`](docs/rules/no-extended-unicode-identifiers.md) **`common`**
+* [`mediawiki/no-nodelist-unsupported-methods`](docs/rules/no-nodelist-unsupported-methods.md) **`common`**
 * [`mediawiki/no-storage`](docs/rules/no-storage.md) `common`
 * [`mediawiki/no-unlabeled-buttonwidget`](docs/rules/no-unlabeled-buttonwidget.md) `common`
-* [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md) `vue`
+* [`mediawiki/no-vue-dynamic-i18n`](docs/rules/no-vue-dynamic-i18n.md) **`vue`**
 * [`mediawiki/storage-expiry`](docs/rules/storage-expiry.md) `common`
-* [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md) 🔧 `common`
-* [`mediawiki/vue-exports-component-directive`](docs/rules/vue-exports-component-directive.md) 🔧 `vue`
+* [`mediawiki/valid-package-file-require`](docs/rules/valid-package-file-require.md) 🔧 **`common`**
+* [`mediawiki/vue-exports-component-directive`](docs/rules/vue-exports-component-directive.md) 🔧 **`vue`**
 
 ## 🤖 Development
 

@@ -4,7 +4,7 @@
 
 Require expiry when using mw.storage with a non-literal key.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as a warning in `plugin:mediawiki/common`.
 
 ## Rule details
 

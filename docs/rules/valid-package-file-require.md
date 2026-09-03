@@ -4,7 +4,7 @@
 
 Ensures `require`d files are in the format that is expected within [ResourceLoader package modules](https://www.mediawiki.org/wiki/ResourceLoader/Package_modules).
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as an error in `plugin:mediawiki/common`.
 
 🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 

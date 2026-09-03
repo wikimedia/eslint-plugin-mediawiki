@@ -4,7 +4,7 @@
 
 Ensures message keys are documented when they are constructed.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as a warning in `plugin:mediawiki/common`.
 
 ## Rule details
 
