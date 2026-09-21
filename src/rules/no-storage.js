@@ -23,7 +23,8 @@ module.exports = {
 				// Direct global access: localStorage/sessionStorage
 				if ( storageNames.includes( node.object.name ) ) {
 					// Check if localStorage/sessionStorage is shadowed by a local variable
-					const scope = context.getSourceCode().getScope( node.object );
+					const scope = ( context.sourceCode ?? context.getSourceCode() )
+						.getScope( node.object );
 					const isShadowed = scope.variables.some( ( v ) => v.name === node.object.name );
 					if ( !isShadowed ) {
 						context.report( {

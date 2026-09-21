@@ -23,7 +23,7 @@ module.exports = {
 	},
 	create( context ) {
 		// Don't trigger on files that don't end in .vue
-		const fileName = context.getFilename();
+		const fileName = ( context.filename ?? context.getFilename() );
 		const fileExt = path.extname( fileName );
 		if ( fileExt !== '.vue' ) {
 			// No rules
@@ -69,7 +69,7 @@ module.exports = {
 				// Check if there's a // @vue/component comment
 				// Get all the comments that match the directive, the same way that
 				// eslint-plugin-vue does
-				const commentTokens = context.getSourceCode()
+				const commentTokens = ( context.sourceCode ?? context.getSourceCode() )
 					.getAllComments()
 					.filter( ( comment ) => /@vue\/component/g.test( comment.value ) );
 				// Check for a comment on the correct line, the same way eslint-plugin-vue
@@ -93,7 +93,8 @@ module.exports = {
 							yield fixer.insertTextAfter( assignedValue, ' )' );
 
 							// Check whether the defineComponent variable is already defined
-							const scope = context.getSourceCode().getScope( assignedValue );
+							const scope = ( context.sourceCode ?? context.getSourceCode() )
+								.getScope( assignedValue );
 							if ( !scope.variables.some( ( v ) => v.name === 'defineComponent' ) ) {
 								// defineComponent is not defined
 
