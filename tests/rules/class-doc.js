@@ -1,14 +1,14 @@
 'use strict';
 
 const rule = require( '../../src/rules/class-doc' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 const outdent = require( 'outdent' );
 
 // Links to https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Coding_conventions/CSS#Constructed_class_names
 const error = 'All possible CSS classes should be documented. See https://w.wiki/PS2 for details.';
 
 const ruleTester = new RuleTester( {
-	parserOptions: { ecmaVersion: 2019 }
+	languageOptions: { ecmaVersion: 2019 }
 } );
 ruleTester.run( 'class-doc', rule, {
 	valid: [
@@ -109,7 +109,7 @@ ruleTester.run( 'class-doc', rule, {
 		// JSON input
 		{
 			code: '{ "classes": { "foo": "bar" } }',
-			parser: require.resolve( 'eslint-plugin-json-es' ),
+			languageOptions: { parser: require( 'eslint-plugin-json-es' ) },
 			docgen: false
 		}
 	],

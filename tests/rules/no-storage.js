@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../../src/rules/no-storage' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const ruleTester = new RuleTester();
 ruleTester.run( 'no-storage', rule, {

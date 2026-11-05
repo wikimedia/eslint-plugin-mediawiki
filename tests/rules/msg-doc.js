@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../../src/rules/msg-doc' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 const outdent = require( 'outdent' );
 
 const error = 'All possible message keys should be documented. See https://w.wiki/4r9a for details.';
@@ -74,7 +74,7 @@ ruleTester.run( 'msg-doc', rule, {
 			function getMessages( items ) {
 				return items.map( ( item ) => mw.message( 'foo-' + item + '-bar' ).text() );
 			}`,
-			parserOptions: { ecmaVersion: 2019 },
+			languageOptions: { ecmaVersion: 2019 },
 			docgen: false
 		},
 

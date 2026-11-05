@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../../src/rules/storage-expiry.js' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const ruleTester = new RuleTester();
 ruleTester.run( 'storage-expiry', rule, {

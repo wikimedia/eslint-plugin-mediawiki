@@ -2,7 +2,7 @@
 
 const rule = require( '../../src/rules/valid-package-file-require' );
 const path = require( 'upath' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const ruleTester = new RuleTester();
 const testFileName = path.resolve( __dirname, '../sandbox/test.js' );

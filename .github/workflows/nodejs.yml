@@ -28,3 +28,22 @@ jobs:
         npm test
       env:
         CI: true
+
+  eslint-9:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Use Node.js 24.x
+      uses: actions/setup-node@v6
+      with:
+        node-version: 24.x
+    - name: npm install, and test rules with ESLint 9
+      # TODO: Run all tests with ESLint 9, once the integration tests and this
+      # repo's lint config use flat config (requires eslint-config-wikimedia)
+      run: |
+        npm ci
+        npm install --no-save --legacy-peer-deps eslint@9
+        npx mocha --reporter dot tests/ tests/rules/
+      env:
+        CI: true
