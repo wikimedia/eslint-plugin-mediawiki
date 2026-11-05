@@ -4,7 +4,7 @@
 
 Prohibits [NodeList methods](https://developer.mozilla.org/en-US/docs/Web/API/NodeList#browser_compatibility) not supported by Chrome<51, Firefox<50, Safari<10, IE & others
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as an error in `plugin:mediawiki/common`.
 
 ## Rule details
 
