@@ -1,6 +1,12 @@
 'use strict';
 
-module.exports = {
+const { name, version } = require( '../package.json' );
+
+const plugin = {
+	meta: {
+		name,
+		version
+	},
 	rules: {
 		'class-doc': require( './rules/class-doc.js' ),
 		'msg-doc': require( './rules/msg-doc.js' ),
@@ -38,3 +44,16 @@ module.exports = {
 		}
 	}
 };
+
+// Flat config (ESLint 9) versions of the configs above
+for ( const configName of [ 'common', 'vue' ] ) {
+	plugin.configs[ 'flat/' + configName ] = {
+		name: 'mediawiki/' + configName,
+		plugins: {
+			mediawiki: plugin
+		},
+		rules: plugin.configs[ configName ].rules
+	};
+}
+
+module.exports = plugin;
