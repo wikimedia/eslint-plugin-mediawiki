@@ -1,13 +1,14 @@
 'use strict';
 
 const path = require( 'upath' );
+const utils = require( '../utils.js' );
 
 function dotSlashPrefixIfMissing( fileName ) {
 	return fileName.indexOf( '.' ) !== 0 ? `./${ fileName }` : fileName;
 }
 
 function getFullRelativeFilePath( name, context ) {
-	const contextDirPath = path.dirname( context.getFilename() );
+	const contextDirPath = path.dirname( utils.getFilename( context ) );
 	const absolutePath = require.resolve(
 		// `require( 'foo.js' )` will be resolved in older node version, whereas for newer ones
 		// it should always be `require( './foo.js' )` for files in the same directory.

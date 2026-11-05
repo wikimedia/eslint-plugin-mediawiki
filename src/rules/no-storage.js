@@ -1,5 +1,7 @@
 'use strict';
 
+const utils = require( '../utils.js' );
+
 const storageNames = [ 'localStorage', 'sessionStorage' ];
 
 module.exports = {
@@ -23,7 +25,7 @@ module.exports = {
 				// Direct global access: localStorage/sessionStorage
 				if ( storageNames.includes( node.object.name ) ) {
 					// Check if localStorage/sessionStorage is shadowed by a local variable
-					const scope = context.getSourceCode().getScope( node.object );
+					const scope = utils.getSourceCode( context ).getScope( node.object );
 					const isShadowed = scope.variables.some( ( v ) => v.name === node.object.name );
 					if ( !isShadowed ) {
 						context.report( {
