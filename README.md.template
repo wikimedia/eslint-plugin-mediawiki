@@ -36,6 +36,22 @@ There are two shared configs: `vue` which contains all Vue-related rules, and `c
 }
 ```
 
+### Flat config (ESLint 9)
+
+With flat config (`eslint.config.js`), use the `flat/common` and `flat/vue` configs:
+
+```js
+const mediawiki = require( 'eslint-plugin-mediawiki' );
+
+module.exports = [
+  mediawiki.configs[ 'flat/common' ],
+  {
+    files: [ '**/*.vue' ],
+    ...mediawiki.configs[ 'flat/vue' ]
+  }
+];
+```
+
 ## 📖 Rules
 
 <!-- rules -->
