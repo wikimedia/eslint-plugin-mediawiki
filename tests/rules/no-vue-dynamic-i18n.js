@@ -2,12 +2,12 @@
 
 const rule = require( '../../src/rules/no-vue-dynamic-i18n' );
 const path = require( 'path' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const errorMessage = 'Dynamic message keys should not be used in templates. Use a computed property instead.';
 
 const ruleTester = new RuleTester( {
-	parser: require.resolve( 'vue-eslint-parser' )
+	languageOptions: { parser: require( 'vue-eslint-parser' ) }
 } );
 const testFileName = path.resolve( __dirname, '../sandbox/test.vue' );
 

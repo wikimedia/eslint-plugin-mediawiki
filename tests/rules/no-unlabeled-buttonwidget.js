@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../../src/rules/no-unlabeled-buttonwidget' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const names = [
 	'ButtonWidget',
@@ -16,7 +16,7 @@ const names = [
 ];
 
 const ruleTester = new RuleTester( {
-	parserOptions: { ecmaVersion: 2019 }
+	languageOptions: { ecmaVersion: 2019 }
 } );
 ruleTester.run( 'no-unlabeled-buttonwidget', rule, {
 	valid: [

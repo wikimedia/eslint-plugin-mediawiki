@@ -1,7 +1,7 @@
 'use strict';
 
 const rule = require( '../../src/rules/no-extended-unicode-identifiers' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 const errorMessage = 'Non-BMP characters are not allowed in identifiers.';
 
 const ruleTester = new RuleTester( {
@@ -10,7 +10,7 @@ const ruleTester = new RuleTester( {
 	rules: {
 		'no-var': 'off'
 	},
-	parserOptions: { ecmaVersion: 2019 }
+	languageOptions: { ecmaVersion: 2019 }
 } );
 ruleTester.run( 'no-extended-unicode-identifiers', rule, {
 	valid: [

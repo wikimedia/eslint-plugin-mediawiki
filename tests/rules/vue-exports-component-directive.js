@@ -2,12 +2,12 @@
 
 const rule = require( '../../src/rules/vue-exports-component-directive' );
 const path = require( 'path' );
-const RuleTester = require( 'eslint-docgen' ).RuleTester;
+const RuleTester = require( '../rule-tester' );
 
 const errorMessage = 'Exported component definitions should be wrapped in `defineComponent()`, or have a `// @vue/component` comment above them.';
 
 const ruleTester = new RuleTester( {
-	parser: require.resolve( 'vue-eslint-parser' )
+	languageOptions: { parser: require( 'vue-eslint-parser' ) }
 } );
 const vueFileName = path.resolve( __dirname, '../sandbox/test.vue' );
 const jsFileName = path.resolve( __dirname, '../sandbox/test.js' );
