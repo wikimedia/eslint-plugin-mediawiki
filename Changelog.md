@@ -1,7 +1,26 @@
 # eslint-plugin-mediawiki release history
 
+## v0.8.4
+* Add flat config versions of the `common` and `vue` configs (Ed Sanders)
+* Rule fix: `class-doc`/`msg-doc`: Avoid return statement crash (missusk)
+
+—
+* Use `context.sourceCode` and `context.filename` where available (Ed Sanders)
+* tests: Write rule tests in flat config format, and test with ESLint 9 (Ed Sanders)
+* tests: Provide an integration test suite based on 'real'-ish sample snippets (James D. Forrester)
+
+—
+* build: Drop Codecov, rely on c8's own coverage thresholds (James D. Forrester)
+* build: Replace nyc with c8, faster and more supported (James D. Forrester)
+* build: Upgrade eslint-config-wikimedia from 0.31.0 to 0.32.5 (James D. Forrester)
+* build: Upgrade eslint-docgen from ^0.7.1 to ^0.8.1 (James D. Forrester)
+* build: Upgrade mocha from ^11.7.4 to ^11.7.6 (no-op in practice) (James D. Forrester)
+* CI: Test in Node 26 too (James D. Forrester)
+
 ## v0.8.3
-* Rule fix: `class-doc`/`msg-doc`: Allow simple expressions (#129) (Ed Sanders)
+* Rule fix: `class-doc`/`msg-doc`: Allow simple expressions (Ed Sanders)
+
+—
 * ci: bump actions (ElectricalBoy)
 * Populate rules list in README by script (Ed Sanders)
 
