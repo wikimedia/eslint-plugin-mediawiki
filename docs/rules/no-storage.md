@@ -4,7 +4,7 @@
 
 Disallow direct access to localStorage and sessionStorage. Use mw.storage or mw.storage.session instead.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as a warning in `plugin:mediawiki/common`.
 
 ## Rule details
 

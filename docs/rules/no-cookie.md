@@ -4,7 +4,7 @@
 
 Disallow direct access to document.cookie. Use mw.cookie instead.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as a warning in `plugin:mediawiki/common`.
 
 ## Rule details
 

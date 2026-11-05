@@ -4,7 +4,7 @@
 
 Warn when a label-less OOUI button is created without a label or invisible label.
 
-📋 This rule is enabled in `plugin:mediawiki/common`.
+📋 This rule is enabled as a warning in `plugin:mediawiki/common`.
 
 ## Rule details
 
