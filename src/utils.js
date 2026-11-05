@@ -76,7 +76,7 @@ function requiresCommentList( context, node ) {
 		return false;
 	}
 
-	const sourceCode = context.getSourceCode();
+	const sourceCode = getSourceCode( context );
 	// Don't modify `node` so the correct error source is highlighted
 	let checkNode = node,
 		prevNode = node,
@@ -119,6 +119,38 @@ function requiresCommentList( context, node ) {
 	return true;
 }
 
+/**
+ * Get the SourceCode object for a rule context
+ *
+ * context.getSourceCode() is deprecated in ESLint 9 and removed in ESLint 10.
+ * context.sourceCode was added in ESLint 8.40.
+ *
+ * @param {Object} context Rule context
+ * @return {Object} SourceCode
+ */
+function getSourceCode( context ) {
+	/* c8 ignore start -- fallback for ESLint < 8.40 */
+	return context.sourceCode || context.getSourceCode();
+	/* c8 ignore stop */
+}
+
+/**
+ * Get the filename for a rule context
+ *
+ * context.getFilename() is deprecated in ESLint 9 and removed in ESLint 10.
+ * context.filename was added in ESLint 8.40.
+ *
+ * @param {Object} context Rule context
+ * @return {string} Filename
+ */
+function getFilename( context ) {
+	/* c8 ignore start -- fallback for ESLint < 8.40 */
+	return context.filename !== undefined ? context.filename : context.getFilename();
+	/* c8 ignore stop */
+}
+
 module.exports = {
-	requiresCommentList: requiresCommentList
+	requiresCommentList: requiresCommentList,
+	getSourceCode: getSourceCode,
+	getFilename: getFilename
 };
